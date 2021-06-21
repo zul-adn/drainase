@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/drainase/static/css/main.73efbf52.chunk.css",
+    "main.js": "/drainase/static/js/main.27573894.chunk.js",
+    "main.js.map": "/drainase/static/js/main.27573894.chunk.js.map",
+    "runtime-main.js": "/drainase/static/js/runtime-main.9747bb96.js",
+    "runtime-main.js.map": "/drainase/static/js/runtime-main.9747bb96.js.map",
+    "static/css/2.3d0b8d2d.chunk.css": "/drainase/static/css/2.3d0b8d2d.chunk.css",
+    "static/js/2.012474f7.chunk.js": "/drainase/static/js/2.012474f7.chunk.js",
+    "static/js/2.012474f7.chunk.js.map": "/drainase/static/js/2.012474f7.chunk.js.map",
+    "static/js/3.f421a787.chunk.js": "/drainase/static/js/3.f421a787.chunk.js",
+    "static/js/3.f421a787.chunk.js.map": "/drainase/static/js/3.f421a787.chunk.js.map",
+    "index.html": "/drainase/index.html",
+    "static/css/2.3d0b8d2d.chunk.css.map": "/drainase/static/css/2.3d0b8d2d.chunk.css.map",
+    "static/css/main.73efbf52.chunk.css.map": "/drainase/static/css/main.73efbf52.chunk.css.map",
+    "static/js/2.012474f7.chunk.js.LICENSE.txt": "/drainase/static/js/2.012474f7.chunk.js.LICENSE.txt",
+    "static/media/logo.6ce24c58.svg": "/drainase/static/media/logo.6ce24c58.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.9747bb96.js",
+    "static/css/2.3d0b8d2d.chunk.css",
+    "static/js/2.012474f7.chunk.js",
+    "static/css/main.73efbf52.chunk.css",
+    "static/js/main.27573894.chunk.js"
+  ]
+}
