@@ -2,9 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, GeoJSON } from 'react-leaflet';
 import { connect } from "react-redux";
 import Modal from 'react-modal';
-import Sidebar from './commons/sidebar';
-import SidebarBottom from './commons/sidebarbottom';
+// import Sidebar from './commons/sidebar';
+import {getAllDatas} from './../store/app/action';
+// import SidebarBottom from './commons/sidebarbottom';
 import 'leaflet/dist/leaflet.css';
+
+const jsonPath = 'https://dinartech.com/drainase/public/file/';
 
 const customStyles = {
     content: {
@@ -17,11 +20,11 @@ const customStyles = {
     },
 };
 
-function RootApp({ datas, filter, openModal }) {
+function RootApp({ datas, filter, openModal, getAllDatas }) {
     const [modalIsOpen, setIsOpen] = useState(openModal);
 
     useEffect(() => {
-        console.log(datas)
+        getAllDatas()
     }, [])
 
 
@@ -67,8 +70,6 @@ function RootApp({ datas, filter, openModal }) {
 
     return (
         <div>
-            <Sidebar />
-            <SidebarBottom />
             <MapContainer
                 className="sidebar-map"
                 center={[0.886691, 108.9576699]}
@@ -93,14 +94,14 @@ function RootApp({ datas, filter, openModal }) {
                     <>
                         {datas.map((data, i) =>
                             <GeoJSON
+                                key={i}
                                 style={
                                     filter === 'kondisi' ? styleKondisi(data.kondisi) : styleKonstruksi(data.konstruksi)
                                 }
-                                data={data.data.features}
+                                data={JSON.parse(data.json).features}
                             >
                                 <Popup>
-                                    Kondisi : {data.kondisi}<br />
-                                    Konstruksi : {data.konstruksi}
+                                   
                                 </Popup>
                             </GeoJSON>
                         )}
@@ -115,22 +116,7 @@ function RootApp({ datas, filter, openModal }) {
                 ariaHideApp={false}
                 // 
             >
-                <table className="customers">
-                    <tr>
-                        <th><i class="fas fa-node    "></i></th>
-                        <th>Nama Jalan</th>
-                        <th>Konstruksi</th>
-                        <th>Kondisi</th>
-                    </tr>
-                    {datas.map((data, i) =>
-                        <tr >
-                            {/* <td>{i+1}</td>
-                            <td>{data.name}</td> */}
-                            {/* <td>{data.konstruksi}</td>
-                            <td>{data.kondisi}</td> */}
-                        </tr>
-                    )}
-                </table>
+               
                 {/* <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Hello</h2>
                 <button onClick={closeModal}>close</button>
                 <div>I am a modal</div>
@@ -149,14 +135,13 @@ function RootApp({ datas, filter, openModal }) {
 const mapStateToProps = ({ app }) => {
     return {
         datas: app.datas,
-        filter: app.filter,
         openModal: app.openModal
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-
+        getAllDatas : () => dispatch(getAllDatas())
     }
 };
 

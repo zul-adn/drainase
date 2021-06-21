@@ -6,6 +6,11 @@ const initialState = {
 
 export default (state = initialState, action) => {
     switch (action.type) {
+        case 'STORE_ALL_DATAS':
+            return{
+                ...state,
+                datas : action.datas,
+            }
         case 'CHANGE_DATAS':
             return{
                 ...state,
