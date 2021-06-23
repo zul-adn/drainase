@@ -1,26 +1,28 @@
 {
   "files": {
-    "main.css": "/drainase/static/css/main.648b364e.chunk.css",
-    "main.js": "/drainase/static/js/main.c9eac8af.chunk.js",
-    "main.js.map": "/drainase/static/js/main.c9eac8af.chunk.js.map",
-    "runtime-main.js": "/drainase/static/js/runtime-main.c214bd9c.js",
-    "runtime-main.js.map": "/drainase/static/js/runtime-main.c214bd9c.js.map",
+    "main.css": "/drainase/static/css/main.a3506a73.chunk.css",
+    "main.js": "/drainase/static/js/main.393da633.chunk.js",
+    "main.js.map": "/drainase/static/js/main.393da633.chunk.js.map",
+    "runtime-main.js": "/drainase/static/js/runtime-main.4afef128.js",
+    "runtime-main.js.map": "/drainase/static/js/runtime-main.4afef128.js.map",
     "static/css/2.3d0b8d2d.chunk.css": "/drainase/static/css/2.3d0b8d2d.chunk.css",
-    "static/js/2.e82d49b4.chunk.js": "/drainase/static/js/2.e82d49b4.chunk.js",
-    "static/js/2.e82d49b4.chunk.js.map": "/drainase/static/js/2.e82d49b4.chunk.js.map",
-    "static/js/3.1d3e68d0.chunk.js": "/drainase/static/js/3.1d3e68d0.chunk.js",
-    "static/js/3.1d3e68d0.chunk.js.map": "/drainase/static/js/3.1d3e68d0.chunk.js.map",
+    "static/js/2.706ae8db.chunk.js": "/drainase/static/js/2.706ae8db.chunk.js",
+    "static/js/2.706ae8db.chunk.js.map": "/drainase/static/js/2.706ae8db.chunk.js.map",
+    "static/js/3.608f40d4.chunk.js": "/drainase/static/js/3.608f40d4.chunk.js",
+    "static/js/3.608f40d4.chunk.js.map": "/drainase/static/js/3.608f40d4.chunk.js.map",
     "index.html": "/drainase/index.html",
     "static/css/2.3d0b8d2d.chunk.css.map": "/drainase/static/css/2.3d0b8d2d.chunk.css.map",
-    "static/css/main.648b364e.chunk.css.map": "/drainase/static/css/main.648b364e.chunk.css.map",
-    "static/js/2.e82d49b4.chunk.js.LICENSE.txt": "/drainase/static/js/2.e82d49b4.chunk.js.LICENSE.txt",
-    "static/media/logo.6ce24c58.svg": "/drainase/static/media/logo.6ce24c58.svg"
+    "static/css/main.a3506a73.chunk.css.map": "/drainase/static/css/main.a3506a73.chunk.css.map",
+    "static/js/2.706ae8db.chunk.js.LICENSE.txt": "/drainase/static/js/2.706ae8db.chunk.js.LICENSE.txt",
+    "static/media/citra.8f8c1291.PNG": "/drainase/static/media/citra.8f8c1291.PNG",
+    "static/media/logo.6ce24c58.svg": "/drainase/static/media/logo.6ce24c58.svg",
+    "static/media/street.a0c65420.PNG": "/drainase/static/media/street.a0c65420.PNG"
   },
   "entrypoints": [
-    "static/js/runtime-main.c214bd9c.js",
+    "static/js/runtime-main.4afef128.js",
     "static/css/2.3d0b8d2d.chunk.css",
-    "static/js/2.e82d49b4.chunk.js",
-    "static/css/main.648b364e.chunk.css",
-    "static/js/main.c9eac8af.chunk.js"
+    "static/js/2.706ae8db.chunk.js",
+    "static/css/main.a3506a73.chunk.css",
+    "static/js/main.393da633.chunk.js"
   ]
 }
