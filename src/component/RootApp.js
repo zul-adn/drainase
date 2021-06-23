@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { MapContainer, TileLayer, Marker, Popup, GeoJSON } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Popup, GeoJSON, LayersControl } from 'react-leaflet';
 import { connect } from "react-redux";
 import Modal from 'react-modal';
 import Sidebar from './commons/sidebar';
-import {getAllDatas, toShow} from './../store/app/action';
+import { getAllDatas, toShow } from './../store/app/action';
 // import SidebarBottom from './commons/sidebarbottom';
 import 'leaflet/dist/leaflet.css';
 import { Layer } from 'leaflet';
 
-const jsonPath = 'https://dinartech.com/drainase/public/file/';
+// Image
+import citra from './assets/img/citra.PNG';
+import street from './assets/img/street.PNG';
 
 const customStyles = {
     content: {
@@ -23,6 +25,10 @@ const customStyles = {
 
 function RootApp({ datas, filter, openModal, getAllDatas, toShow }) {
     const [modalIsOpen, setIsOpen] = useState(openModal);
+    const [view, setView] = useState([0.886691, 108.9576699])
+    const [zoom, setZoom] = useState(11)
+    const [sat, setSat] = useState(true)
+    const [url, setUrl] = useState('https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoiZGluYXJ0ZWNoIiwiYSI6ImNrcDV0Ym1xaDA3dTIzMW5zaXJsbmViNmwifQ.CuHZsA_wzhmanNCIs5jYEw')
 
     useEffect(() => {
         getAllDatas()
@@ -69,26 +75,53 @@ function RootApp({ datas, filter, openModal, getAllDatas, toShow }) {
         }
     }
 
+    const over = (e) => {
+        console.log(e)
+    }
+
+    const changeStyleMap = () => {
+        setSat(!sat)
+        if (sat) {
+            setUrl('https://api.mapbox.com/styles/v1/mapbox/satellite-v9/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoiZGluYXJ0ZWNoIiwiYSI6ImNrcDV0Ym1xaDA3dTIzMW5zaXJsbmViNmwifQ.CuHZsA_wzhmanNCIs5jYEw')
+        } else {
+            setUrl('https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoiZGluYXJ0ZWNoIiwiYSI6ImNrcDV0Ym1xaDA3dTIzMW5zaXJsbmViNmwifQ.CuHZsA_wzhmanNCIs5jYEw')
+        }
+    }
+
     return (
         <div>
             <Sidebar />
             <MapContainer
                 className="sidebar-map"
-                center={[0.886691, 108.9576699]}
-                zoom={11}
+                center={view}
+                zoom={12}
                 scrollWheelZoom={true}
                 // style={{ height: "100vh", width: "100vw", zIndex: openModal ? -100 : 1}}
                 style={
-                    openModal ? 
-                        {height: "100vh", width: "100vw", zIndex: -1}
+                    openModal ?
+                        { height: "100vh", width: "100vw", zIndex: -1 }
                         :
-                        {height: "100vh", width: "100vw", zIndex: 1}
+                        { height: "100vh", width: "100vw", zIndex: 1 }
                 }
             >
-                <TileLayer
-                    url={`https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoiZGluYXJ0ZWNoIiwiYSI6ImNrcDV0Ym1xaDA3dTIzMW5zaXJsbmViNmwifQ.CuHZsA_wzhmanNCIs5jYEw`}
+                {/* <TileLayer
+                    url={url}
                     attribution='Map data &copy; <a href=&quot;https://www.openstreetmap.org/&quot;>OpenStreetMap</a> contributors, <a href=&quot;https://creativecommons.org/licenses/by-sa/2.0/&quot;>CC-BY-SA</a>, Imagery &copy; <a href=&quot;https://www.mapbox.com/&quot;>Mapbox</a> - Databse irigasi PUPR Kota Singkawang'
-                />
+                /> */}
+                    <LayersControl position="bottomleft" >
+                        <LayersControl.BaseLayer checked={sat} name="Sattelite">
+                            <TileLayer
+                                attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                                url="https://api.mapbox.com/styles/v1/mapbox/satellite-v9/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoiZGluYXJ0ZWNoIiwiYSI6ImNrcDV0Ym1xaDA3dTIzMW5zaXJsbmViNmwifQ.CuHZsA_wzhmanNCIs5jYEw"
+                            />
+                        </LayersControl.BaseLayer>
+                        <LayersControl.BaseLayer checked={!sat} name="OpenStreetMap.BlackAndWhite">
+                            <TileLayer
+                                attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                                url="https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoiZGluYXJ0ZWNoIiwiYSI6ImNrcDV0Ym1xaDA3dTIzMW5zaXJsbmViNmwifQ.CuHZsA_wzhmanNCIs5jYEw"
+                            />
+                        </LayersControl.BaseLayer>
+                    </LayersControl>
 
                 {datas.length === 0 ?
                     ""
@@ -101,9 +134,26 @@ function RootApp({ datas, filter, openModal, getAllDatas, toShow }) {
                                     filter === 'kondisi' ? styleKondisi(data.kondisi) : styleKonstruksi(data.konstruksi)
                                 }
                                 data={JSON.parse(data.json).features}
-                                onEachFeature = {(feature, layer) => {
-                                    layer.on('click', function(e){
-                                       toShow(data)
+                                onEachFeature={(feature, layer) => {
+                                    layer.on('click', function (e) {
+                                        toShow(data)
+                                        // setView(e.latlng)
+                                        // setZoom(2)
+                                        // e.target.setStyle({
+                                        //     weight: 10
+                                        // })
+                                    })
+
+                                    layer.on('mouseover', function (e) {
+                                        e.target.setStyle({
+                                            weight: 7
+                                        })
+                                    })
+
+                                    layer.on('mouseout', function (e) {
+                                        e.target.setStyle({
+                                            weight: 3
+                                        })
                                     })
                                 }}
                             >
@@ -112,26 +162,9 @@ function RootApp({ datas, filter, openModal, getAllDatas, toShow }) {
                     </>
                 }
             </MapContainer>
-            <Modal
-                isOpen={openModal}
-                onRequestClose={openModal}
-                style={customStyles}
-                contentLabel="Example Modal"
-                ariaHideApp={false}
-                // 
-            >
-               
-                {/* <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Hello</h2>
-                <button onClick={closeModal}>close</button>
-                <div>I am a modal</div>
-                <form>
-                    <input />
-                    <button>tab navigation</button>
-                    <button>stays</button>
-                    <button>inside</button>
-                    <button>the modal</button>
-                </form> */}
-            </Modal>
+            <div className="changemapstyle" onClick={changeStyleMap}>
+                <img src={sat ? street : citra} />
+            </div>
         </div>
     )
 }
@@ -145,8 +178,8 @@ const mapStateToProps = ({ app }) => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        getAllDatas : () => dispatch(getAllDatas()),
-        toShow : (payload) => dispatch(toShow(payload))
+        getAllDatas: () => dispatch(getAllDatas()),
+        toShow: (payload) => dispatch(toShow(payload))
     }
 };
 
