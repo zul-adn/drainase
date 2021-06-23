@@ -1,7 +1,8 @@
 const initialState = {
     datas: [],
     filter: '',
-    openModal: false
+    openModal: false,
+    toShow: []
 }
 
 export default (state = initialState, action) => {
@@ -21,6 +22,11 @@ export default (state = initialState, action) => {
             return{
                 ...state,
                 openModal: !state.openModal
+            }
+        case 'TO_SHOW':
+            return{
+                ...state,
+                toShow: action.datas
             }
         default:
             return state

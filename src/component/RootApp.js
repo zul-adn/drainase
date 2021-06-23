@@ -2,10 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, GeoJSON } from 'react-leaflet';
 import { connect } from "react-redux";
 import Modal from 'react-modal';
-// import Sidebar from './commons/sidebar';
-import {getAllDatas} from './../store/app/action';
+import Sidebar from './commons/sidebar';
+import {getAllDatas, toShow} from './../store/app/action';
 // import SidebarBottom from './commons/sidebarbottom';
 import 'leaflet/dist/leaflet.css';
+import { Layer } from 'leaflet';
 
 const jsonPath = 'https://dinartech.com/drainase/public/file/';
 
@@ -20,7 +21,7 @@ const customStyles = {
     },
 };
 
-function RootApp({ datas, filter, openModal, getAllDatas }) {
+function RootApp({ datas, filter, openModal, getAllDatas, toShow }) {
     const [modalIsOpen, setIsOpen] = useState(openModal);
 
     useEffect(() => {
@@ -70,6 +71,7 @@ function RootApp({ datas, filter, openModal, getAllDatas }) {
 
     return (
         <div>
+            <Sidebar />
             <MapContainer
                 className="sidebar-map"
                 center={[0.886691, 108.9576699]}
@@ -99,10 +101,12 @@ function RootApp({ datas, filter, openModal, getAllDatas }) {
                                     filter === 'kondisi' ? styleKondisi(data.kondisi) : styleKonstruksi(data.konstruksi)
                                 }
                                 data={JSON.parse(data.json).features}
+                                onEachFeature = {(feature, layer) => {
+                                    layer.on('click', function(e){
+                                       toShow(data)
+                                    })
+                                }}
                             >
-                                <Popup>
-                                   
-                                </Popup>
                             </GeoJSON>
                         )}
                     </>
@@ -141,7 +145,8 @@ const mapStateToProps = ({ app }) => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        getAllDatas : () => dispatch(getAllDatas())
+        getAllDatas : () => dispatch(getAllDatas()),
+        toShow : (payload) => dispatch(toShow(payload))
     }
 };
 
