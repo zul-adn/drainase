@@ -3,6 +3,7 @@ import Icon, { FontAwesome, Feather } from 'react-web-vector-icons';
 import Slider from "react-slick";
 import './../style/style.css';
 import { connect } from "react-redux";
+import { isMobile } from "react-device-detect";
 import Card from './card';
 import Button from './button';
 
@@ -12,6 +13,13 @@ function Sidebar({ toShow }) {
     useEffect(() => {
         console.log(toShow)
     }, [])
+
+    const closeSidebar = () => {
+        isMobile ? 
+        document.querySelector('.sidebar').style.bottom = '-100vh'
+        :
+        document.querySelector('.sidebar').style.right = '-700px'
+    }
 
     const settings = {
         dots: true,
@@ -23,7 +31,9 @@ function Sidebar({ toShow }) {
 
     return (
         <div className="sidebar">
-
+            <div className="close" onClick={closeSidebar} >
+                X
+            </div>
             <div className="cor-container">
                 <Slider {...settings}>
                     <div className="cor-item">
