@@ -9,9 +9,9 @@ export default function buttoncontrol() {
 
     const showChart = () => {
         if(isTablet){
-            document.querySelector('.sidebar').style.right = '20px'
+            document.querySelector('.chart').style.display = 'block'
         }else if(isMobile){
-            document.querySelector('.sidebar').style.bottom = '0'
+            document.querySelector('.chart').style.display = 'block'
         }else{
             document.querySelector('.chart').style.display = 'block'
         }

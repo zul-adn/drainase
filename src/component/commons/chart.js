@@ -13,9 +13,9 @@ function Chart({ sumDatas }) {
 
     const closeChart = () => {
         if (isTablet) {
-            document.querySelector('.sidebar').style.right = '20px'
+            document.querySelector('.chart').style.display = 'none'
         } else if (isMobile) {
-            document.querySelector('.sidebar').style.bottom = '0'
+            document.querySelector('.chart').style.display = 'none'
         } else {
             document.querySelector('.chart').style.display = 'none'
         }
