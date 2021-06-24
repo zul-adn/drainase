@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import Modal from 'react-modal';
 import Sidebar from './commons/sidebar';
 import { getAllDatas, toShow } from './../store/app/action';
-import { isMobile } from "react-device-detect";
+import { isMobile, isTablet } from "react-device-detect";
 // import SidebarBottom from './commons/sidebarbottom';
 import 'leaflet/dist/leaflet.css';
 import { Layer } from 'leaflet';
@@ -41,10 +41,14 @@ function RootApp({ datas, filter, openModal, getAllDatas, toShow }) {
     }
 
     const showSidebar = () => {
-        isMobile ? 
-        document.querySelector('.sidebar').style.bottom = '0'
-        :
-        document.querySelector('.sidebar').style.right = '20px'
+       if(isTablet){
+            document.querySelector('.sidebar').style.right = '20px'
+        }else if(isMobile){
+            document.querySelector('.sidebar').style.bottom = '0'
+        }else{
+            document.querySelector('.sidebar').style.right = '20px'
+        }
+       
     }
 
     const styleKondisi = (kondisi) => {

@@ -3,7 +3,7 @@ import Icon, { FontAwesome, Feather } from 'react-web-vector-icons';
 import Slider from "react-slick";
 import './../style/style.css';
 import { connect } from "react-redux";
-import { isMobile } from "react-device-detect";
+import { isMobile, isTablet } from "react-device-detect";
 import Card from './card';
 import Button from './button';
 
@@ -15,10 +15,15 @@ function Sidebar({ toShow }) {
     }, [])
 
     const closeSidebar = () => {
-        isMobile ? 
-        document.querySelector('.sidebar').style.bottom = '-100vh'
-        :
-        document.querySelector('.sidebar').style.right = '-700px'
+
+        if(isTablet){
+            document.querySelector('.sidebar').style.right = '-700px'
+        }else if(isMobile){
+            document.querySelector('.sidebar').style.bottom = '-100vh'
+        }else{
+            document.querySelector('.sidebar').style.right = '-700px'
+        }
+
     }
 
     const settings = {
