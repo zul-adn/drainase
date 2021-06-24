@@ -2,7 +2,8 @@ const initialState = {
     datas: [],
     filter: '',
     openModal: false,
-    toShow: []
+    toShow: [],
+    sumDatas: []
 }
 
 export default (state = initialState, action) => {
@@ -27,6 +28,11 @@ export default (state = initialState, action) => {
             return{
                 ...state,
                 toShow: action.datas
+            }
+        case 'CHANGE_DATAS_SUM':
+            return{
+                ...state,
+                sumDatas: action.datas
             }
         default:
             return state

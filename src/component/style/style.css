@@ -31,6 +31,23 @@ body {
   cursor: pointer;
 }
 
+.close-chart{
+  position: absolute;
+  z-index: 10;
+  height: 5vh;
+  width: 5vh;
+  aspect-ratio: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color:rgb(255, 255, 255);
+  border-radius: 50%;
+  right: 10px;
+  top: 10px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
 .sidebar-bottom {
   position: absolute;
   height: 30vh;
@@ -180,7 +197,7 @@ body {
 
 .changemapstyle img {
   width: 100%;
-  border-radius: 3px;
+  border-radius: 20px;
 }
 
 
@@ -202,7 +219,7 @@ body {
     position: absolute;
     width: 240px;
     height: 70px;
-    z-index: 999;
+    z-index: 100;
     right: 20px;
     bottom: 35px;
     background-color:rgb(255, 255, 255);
@@ -237,17 +254,137 @@ body {
     width: 5vw;
     aspect-ratio: 1;
     z-index: 100;
-    left: 10px;
-    bottom: 10px;
+    left: 5px;
+    bottom: 5px;
     background-color: #fff;
     box-shadow: "0px 0px 15px rgba(0, 0, 0, 0.25)";
-    border-radius: 3px;
+    border-radius: 20px;
     padding: 2px;
     cursor: pointer;
     /* overflow: scroll; */
   }
+
+  .chart{
+    display: none;
+    position: absolute;
+    margin: auto;
+    width: 90vw;
+    height: 90vh;
+    padding: 20px;
+    z-index: 101;
+    border-radius: 20px;
+    top: 50%;
+    left: 50%;
+    right: auto;
+    bottom: auto;
+    box-shadow: "0px 0px 15px rgba(0, 0, 0, 0.25)";
+    transform: translate(-50%, -50%);
+    background-color: rgb(255, 255, 255, 0.8);
+    padding: 20px;
+    overflow: auto;
+    transition: linear 2s;
+  }
+
+  .chart .main-chart{
+    background-color: #9b59b6;
+    border-radius: 20px;
+    padding: 20px;
+    color: #fff;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    flex-direction: column;
+  }
+
+  .chart .main-chart .main-text{
+    font-size: 72px;
+    font-weight: 900;
+  }
+
+
+  .category-container {
+    display: grid;
+    /* grid-template-rows: repeat(3, 120px); */
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 10px;
+    row-gap: 15px;
+    margin-top: 10vh;
+  }
+  .category-item {
+    padding: 20px;
+    width: 85%;
+    border-radius: 20px;
+    background-color: #34495e;
+    color: #fff;
+    padding: 20px;
+  }
+
+  .category-item .header {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    background-color: #9b59b6;
+    width: 100%;
+    border-radius: 15px;
+  }
+
+  .category-item .content-wrapper {
+    background-color: #9b59b6;
+    width: 100%;
+    border-radius: 15px;
+    margin-top: 20px;
+    padding: 10px 0px;
+  }
+
+  .category-item .content {
+    background-color: #67377c;
+    border-radius: 15px;
+    margin: 10px;
+  }
+
+ 
+  .category-item .header .main{
+    font-size: 40px;
+    margin: 10px 15px 0px 0px;
+  }
+
+  .category-item .header .sub{
+    margin: 0px 15px 15px 0px;
+  }
+
+  .category-item .content .title{
+    text-align: center;
+    padding: 10px 15px 10px 0px;
+
+  }
+
+  .category-item .content .content-2{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 10px;
+    text-align: center;
+    word-wrap: break-word;
+  }
+
+  .category-item .content .content-3{
+   
+    padding: 10px 20px 20px 20px;
+  }
+
+  .category-item .content .content-3 .angka{
+    font-size: 24px;
+  }
+
+  .category-item .content .content-3 .ket{
+    font-size: 12px;
+
+  }
+
+
 }
 
+/* TABLET */
 @media screen and (min-width: 481px) and (max-width: 1024px) {
   .sidebar {
     position: absolute;
@@ -304,14 +441,14 @@ body {
     bottom: 10px;
     background-color: #fff;
     box-shadow: "0px 0px 15px rgba(0, 0, 0, 0.25)";
-    border-radius: 3px;
+    border-radius: 20px;
     padding: 2px;
     cursor: pointer;
     /* overflow: scroll; */
   }
 }
 
-
+/* MOBILE */
 @media (max-width: 480px) {
   .sidebar {
     position: absolute;
@@ -338,6 +475,7 @@ body {
     box-shadow: '0px 0px 15px rgba(0, 0, 0, 0.25)';
     display: flex;
     flex-direction: row;
+    z-index: 100;
   }
 
   .btn-control div{
@@ -362,14 +500,14 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 15vw;
+    width: 18vw;
     aspect-ratio: 1;
     z-index: 100;
     left: 10px;
     bottom: 10px;
     background-color: #fff;
     box-shadow: "0px 0px 15px rgba(0, 0, 0, 0.25)";
-    border-radius: 3px;
+    border-radius: 20px;
     padding: 2px;
     cursor: pointer;
     /* overflow: scroll; */
