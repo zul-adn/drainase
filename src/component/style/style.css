@@ -183,6 +183,8 @@ body {
   border-radius: 3px;
 }
 
+
+/* DEKSTOP */
 @media (min-width: 1025px) {
   .sidebar {
     position: absolute;
@@ -192,8 +194,39 @@ body {
     top: 20px;
     background-color: #fff;
     box-shadow: '0px 0px 15px rgba(0, 0, 0, 0.25)';
-    border-radius: 20px 20px 20px 20px;
+    border-radius: 20px;
     transition: ease-in-out 0.5s;
+  }
+
+  .btn-control{
+    position: absolute;
+    width: 240px;
+    height: 70px;
+    z-index: 999;
+    right: 20px;
+    bottom: 35px;
+    background-color:rgb(255, 255, 255);
+    border-radius: 20px;
+    box-shadow: '0px 0px 15px rgba(0, 0, 0, 0.25)';
+    display: flex;
+    flex-direction: row;
+  }
+
+  .btn-control div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width : 33%;
+  }
+
+  .btn-control div img{
+    width : 50%;
+    cursor: pointer;
+    transition: ease-in-out 0.1s;
+  }
+
+  .btn-control div img:hover{
+    width : 55%;
   }
 
   .changemapstyle {
@@ -228,6 +261,37 @@ body {
     transition: ease-in-out 0.5s;
   }
 
+  .btn-control{
+    position: absolute;
+    width: 240px;
+    height: 70px;
+    z-index: 999;
+    right: 20px;
+    bottom: 35px;
+    background-color:rgb(255, 255, 255);
+    border-radius: 20px;
+    box-shadow: '0px 0px 15px rgba(0, 0, 0, 0.25)';
+    display: flex;
+    flex-direction: row;
+  }
+
+  .btn-control div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width : 33%;
+  }
+
+  .btn-control div img{
+    width : 50%;
+    cursor: pointer;
+    transition: ease-in-out 0.1s;
+  }
+
+  .btn-control div img:hover{
+    width : 55%;
+  }
+
   .changemapstyle {
     position: absolute;
     display: flex;
@@ -260,6 +324,37 @@ body {
     box-shadow: "0px 0px 15px rgba(0, 0, 0, 0.25)";
     border-radius: 20px 20px 0px 0px;
     overflow-x: scroll;
+  }
+
+  .btn-control{
+    position: absolute;
+    width: 200px;
+    height: 60px;
+    z-index: 999;
+    right: 10px;
+    bottom: 10px;
+    background-color:rgb(255, 255, 255);
+    border-radius: 20px;
+    box-shadow: '0px 0px 15px rgba(0, 0, 0, 0.25)';
+    display: flex;
+    flex-direction: row;
+  }
+
+  .btn-control div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width : 33%;
+  }
+
+  .btn-control div img{
+    width : 50%;
+    cursor: pointer;
+    transition: ease-in-out 0.1s;
+  }
+
+  .btn-control div img:hover{
+    width : 55%;
   }
 
   .changemapstyle {

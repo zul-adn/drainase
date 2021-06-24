@@ -3,6 +3,7 @@ import { MapContainer, TileLayer, Marker, Popup, GeoJSON, LayersControl } from '
 import { connect } from "react-redux";
 import Modal from 'react-modal';
 import Sidebar from './commons/sidebar';
+import ButtonControl from './commons/buttoncontrol';
 import { getAllDatas, toShow } from './../store/app/action';
 import { isMobile, isTablet } from "react-device-detect";
 // import SidebarBottom from './commons/sidebarbottom';
@@ -178,6 +179,7 @@ function RootApp({ datas, filter, openModal, getAllDatas, toShow }) {
             <div className="changemapstyle" onClick={changeStyleMap}>
                 <img src={sat ? street : citra} />
             </div>
+            <ButtonControl />
         </div>
     )
 }
