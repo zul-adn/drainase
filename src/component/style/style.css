@@ -31,23 +31,6 @@ body {
   cursor: pointer;
 }
 
-.close-chart {
-  position: absolute;
-  z-index: 10;
-  height: 5vh;
-  width: 5vh;
-  aspect-ratio: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: rgb(255, 255, 255);
-  border-radius: 50%;
-  right: 10px;
-  top: 10px;
-  font-weight: 900;
-  cursor: pointer;
-}
-
 .sidebar-bottom {
   position: absolute;
   height: 30vh;
@@ -258,6 +241,26 @@ body {
     padding: 2px;
     cursor: pointer;
     /* overflow: scroll; */
+  }
+
+  .close-chart {
+    display: none;
+    position: fixed;
+    z-index: 199;
+    height: 7vh;
+    width: 7vh;
+    aspect-ratio: 1;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    right: 50px;
+    top: 20px;
+    font-weight: bold;
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #ff6b6b;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+    color: #fff;
   }
 
   .chart {
@@ -531,6 +534,26 @@ body {
     /* overflow: scroll; */
   }
 
+  .close-chart {
+    display: none;
+    position: fixed;
+    z-index: 199;
+    height: 7vh;
+    width: 7vh;
+    aspect-ratio: 1;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    right: 10px;
+    bottom: 120px;
+    font-weight: bold;
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #ff6b6b;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+    color: #fff;
+  }
+
   .chart {
     display: none;
     position: absolute;
@@ -749,7 +772,7 @@ body {
     transition: ease-in-out 0.5s;
     bottom: -100vh;
     background-color: #fff;
-    box-shadow: "0px 0px 15px rgba(0, 0, 0, 0.25)";
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
     border-radius: 20px 20px 0px 0px;
     overflow-x: scroll;
   }
@@ -763,7 +786,7 @@ body {
     bottom: 10px;
     background-color: rgb(255, 255, 255);
     border-radius: 20px;
-    box-shadow: "0px 0px 15px rgba(0, 0, 0, 0.25)";
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
     display: flex;
     flex-direction: row;
     z-index: 100;
@@ -786,6 +809,26 @@ body {
     width: 55%;
   }
 
+  .close-chart {
+    display: none;
+    position: fixed;
+    z-index: 199;
+    height: 7vh;
+    width: 7vh;
+    aspect-ratio: 1;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    right: 10px;
+    bottom: 50px;
+    font-weight: bold;
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #ff6b6b;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+    color: #fff;
+  }
+
   .changemapstyle {
     position: absolute;
     display: flex;
@@ -797,7 +840,7 @@ body {
     left: 10px;
     bottom: 10px;
     background-color: #fff;
-    box-shadow: "0px 0px 15px rgba(0, 0, 0, 0.25)";
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
     border-radius: 20px;
     padding: 2px;
     cursor: pointer;

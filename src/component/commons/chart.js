@@ -14,18 +14,22 @@ function Chart({ sumDatas }) {
     const closeChart = () => {
         if (isTablet) {
             document.querySelector('.chart').style.display = 'none'
+            document.querySelector('.close-chart').style.display = 'none'
         } else if (isMobile) {
+            document.querySelector('.close-chart').style.display = 'none'
             document.querySelector('.chart').style.display = 'none'
         } else {
             document.querySelector('.chart').style.display = 'none'
+            document.querySelector('.close-chart').style.display = 'none'
         }
     }
 
     return (
-        <div className="chart">
-            <div className="close-chart" onClick={closeChart}>
+        <>
+         <div className="close-chart animate__animated animate__rubberBand" onClick={closeChart}>
                 X
-            </div>
+        </div>
+        <div className="chart">
             <div className="main-chart animate__animated animate__bounceInLeft">
                 <div className="header">
                     <div className="main-text">
@@ -223,6 +227,7 @@ function Chart({ sumDatas }) {
                 }
             </div>
         </div>
+        </>
     )
 }
 

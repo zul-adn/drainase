@@ -9,10 +9,14 @@ export default function buttoncontrol() {
 
     const showChart = () => {
         if(isTablet){
+            document.querySelector('.close-chart').style.display = 'flex'
             document.querySelector('.chart').style.display = 'block'
+           
         }else if(isMobile){
+            document.querySelector('.close-chart').style.display = 'flex'
             document.querySelector('.chart').style.display = 'block'
         }else{
+            document.querySelector('.close-chart').style.display = 'flex'
             document.querySelector('.chart').style.display = 'block'
         }
     }
