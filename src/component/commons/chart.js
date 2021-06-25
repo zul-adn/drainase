@@ -27,11 +27,105 @@ function Chart({ sumDatas }) {
                 X
             </div>
             <div className="main-chart animate__animated animate__bounceInLeft">
-                <div className="main-text">
-                    {sumDatas.length !== 0 ? sumDatas.total[0].total : "Loading..."}
+                <div className="header">
+                    <div className="main-text">
+                        {sumDatas.length !== 0 ? sumDatas.total[0].total : "Loading..."}
+                    </div>
+                    <div className="sub-text">
+                        Total panjang jaringan Kota Singkawang
+                    </div>
                 </div>
-                <div className="sub-text">
-                    Total panjang jaringan Kota Singkawang
+
+                <div className="category-container-2">
+
+                    <div className="category-item-2">
+                        <div className="layer">
+                            <div className="header-2">Tipe Saluran</div>
+                            <div className="content-2">
+                                {sumDatas.length !== 0 ?
+                                    sumDatas.tipe_saluran.map((data, i) =>
+                                        <div>
+                                            <div className="main animate__animated animate__flipInX animate__delay-1s">
+                                                {data.panjang}
+                                            </div>
+                                            <div className="sub animate__animated animate__fadeInUp animate__delay-1s">
+                                                {data.tipe_saluran}
+                                            </div>
+                                        </div>
+                                    )
+                                    :
+                                    <div>Loading</div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="category-item-2">
+                        <div className="layer">
+                            <div className="header-2">Kondisi</div>
+                            <div className="content-2">
+                                {sumDatas.length !== 0 ?
+                                    sumDatas.kondisi.map((data, i) =>
+                                        <div>
+                                            <div className="main animate__animated animate__flipInX animate__delay-1s">
+                                                {data.panjang}
+                                            </div>
+                                            <div className="sub animate__animated animate__fadeInUp animate__delay-1s">
+                                                {data.kondisi}
+                                            </div>
+                                        </div>
+                                    )
+                                    :
+                                    <div>Loading</div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="category-item-2">
+                        <div className="layer">
+                            <div className="header-2">Konstruksi</div>
+                            <div className="content-2">
+                                {sumDatas.length !== 0 ?
+                                    sumDatas.konstruksi.map((data, i) =>
+                                        <div>
+                                            <div className="main animate__animated animate__flipInX animate__delay-1s">
+                                                {data.panjang}
+                                            </div>
+                                            <div className="sub animate__animated animate__fadeInUp animate__delay-1s">
+                                                {data.konstruksi}
+                                            </div>
+                                        </div>
+                                    )
+                                    :
+                                    <div>Loading</div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="category-item-2">
+                        <div className="layer">
+                            <div className="header-2">Kondisi Saluran</div>
+                            <div className="content-2">
+                                {sumDatas.length !== 0 ?
+                                    sumDatas.kondisi_saluran.map((data, i) =>
+                                        <div>
+                                            <div className="main animate__animated animate__flipInX animate__delay-1s">
+                                                {data.panjang}
+                                            </div>
+                                            <div className="sub animate__animated animate__fadeInUp animate__delay-1s">
+                                                {data.kondisi_saluran}
+                                            </div>
+                                        </div>
+                                    )
+                                    :
+                                    <div>Loading</div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
 
@@ -40,10 +134,10 @@ function Chart({ sumDatas }) {
                     sumDatas.all.map((data, i) =>
                         <div class="category-item">
                             <div className="header">
-                                <div className="main">
+                                <div className="main animate__animated animate__flipInX animate__delay-1s">
                                     {data.panjang}
                                 </div>
-                                <div className="sub">
+                                <div className="sub animate__animated animate__fadeInUp animate__delay-1s">
                                     {data.nama_jaringan}
                                 </div>
                             </div>
@@ -55,10 +149,10 @@ function Chart({ sumDatas }) {
                                     <div className="content-2">
                                         {data.tipe_saluran.map((tipe, i) =>
                                             <div className="content-3">
-                                                <div className="angka">
+                                                <div className="angka animate__animated animate__flipInX animate__delay-1s">
                                                     {tipe.panjang}
                                                 </div>
-                                                <div className="ket">
+                                                <div className="ket animate__animated animate__fadeInUp animate__delay-1s">
                                                     {tipe.tipe_saluran}
                                                 </div>
                                             </div>
@@ -73,10 +167,10 @@ function Chart({ sumDatas }) {
                                     <div className="content-2">
                                         {data.kondisi.map((tipe, i) =>
                                             <div className="content-3">
-                                                <div className="angka">
+                                                <div className="angka animate__animated animate__flipInX animate__delay-1s">
                                                     {tipe.panjang}
                                                 </div>
-                                                <div className="ket">
+                                                <div className="ket animate__animated animate__fadeInUp animate__delay-1s">
                                                     {tipe.kondisi}
                                                 </div>
                                             </div>
@@ -91,10 +185,10 @@ function Chart({ sumDatas }) {
                                     <div className="content-2">
                                         {data.konstruksi.map((tipe, i) =>
                                             <div className="content-3">
-                                                <div className="angka">
+                                                <div className="angka animate__animated animate__flipInX animate__delay-1s">
                                                     {tipe.panjang}
                                                 </div>
-                                                <div className="ket">
+                                                <div className="ket animate__animated animate__fadeInUp animate__delay-1s">
                                                     {tipe.konstruksi}
                                                 </div>
                                             </div>
