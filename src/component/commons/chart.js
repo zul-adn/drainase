@@ -6,10 +6,6 @@ import 'animate.css';
 
 function Chart({ sumDatas }) {
 
-    React.useEffect(() => {
-        console.log(sumDatas)
-    })
-
 
     const closeChart = () => {
         if (isTablet) {
@@ -199,25 +195,28 @@ function Chart({ sumDatas }) {
                                         )}
                                     </div>
                                 </div>
+                                
+                                <div className="content">
+                                    <div className="title">
+                                        Kondisi Saluran
+                                    </div>
+                                    <div className="content-2">
+                                        {data.kondisi_saluran.map((tipe, i) =>
+                                            <div className="content-3">
+                                                <div className="angka animate__animated animate__flipInX animate__delay-1s">
+                                                    {tipe.panjang}
+                                                </div>
+                                                <div className="ket animate__animated animate__fadeInUp animate__delay-1s">
+                                                    {tipe.kondisi_saluran}
+                                                </div>
+                                            </div>
+                                        )}
+                                    </div>
+                                </div>
+
                             </div>
 
-                            {/* <div className="content">
-                                <div className="title">
-                                   Kondisi Saluran
-                                </div>
-                                <div className="content-2">
-                                    {data.kondisi_saluran.map((tipe, i) => 
-                                        <div className="content-3">
-                                            <div className="angka">
-                                                {tipe.panjang}
-                                            </div>
-                                            <div className="ket">
-                                                {tipe.kondisi_saluran}
-                                            </div>
-                                        </div>
-                                    )}
-                                </div>
-                            </div> */}
+                           
                         </div>
                     )
                     :

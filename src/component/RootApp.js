@@ -6,16 +6,21 @@ import Modal from 'react-modal';
 import Sidebar from './commons/sidebar';
 import ButtonControl from './commons/buttoncontrol';
 import Chart from './commons/chart';
+import Legend from './commons/legend';
 
 import { getAllDatas, toShow, getSumDatas } from './../store/app/action';
-import { isMobile, isTablet } from "react-device-detect";
+import { isDesktop, isMobile, isTablet } from "react-device-detect";
 // import SidebarBottom from './commons/sidebarbottom';
 import 'leaflet/dist/leaflet.css';
 import { Layer } from 'leaflet';
 
+
+
+
 // Image
 import citra from './assets/img/citra.PNG';
 import street from './assets/img/street.PNG';
+import legend from './commons/legend';
 
 const customStyles = {
     content: {
@@ -28,7 +33,7 @@ const customStyles = {
     },
 };
 
-function RootApp({ datas, filter, openModal, getAllDatas, getSumDatas, toShow }) {
+function RootApp({ datas, filter, openModal, getAllDatas, getSumDatas, toShow, sumDatas, legend }) {
     const [modalIsOpen, setIsOpen] = useState(openModal);
     const [view, setView] = useState([0.886691, 108.9576699])
     const [zoom, setZoom] = useState(11)
@@ -39,63 +44,70 @@ function RootApp({ datas, filter, openModal, getAllDatas, getSumDatas, toShow })
         getData()
     }, [])
 
-    const getData = async() => {
+    const getData = async () => {
         await getAllDatas()
         await getSumDatas()
     }
 
-
-    const getDatas = () => {
-        console.log(datas)
-    }
-
     const showSidebar = () => {
-       if(isTablet){
+        if (isTablet) {
             document.querySelector('.sidebar').style.right = '20px'
-        }else if(isMobile){
+        } else if (isMobile) {
             document.querySelector('.sidebar').style.bottom = '0'
+        } else {
+            document.querySelector('.sidebar').style.right = '25px'
+            document.querySelector('.legend').style.height = '20vh'
+        }
+
+    }
+
+
+
+    const styleLegend = (val) => {
+        let color
+        if (legend.length !== 0) {
+            if (filter === 'kondisi') {
+                legend.kondisi.map((data, i) => {
+                    if (val.kondisi === data.name) {
+                        color = data.color
+                    }
+                })
+            } else if (filter === 'konstruksi') {
+                legend.konstruksi.map((data, i) => {
+                    if (val.konstruksi === data.name) {
+                        color = data.color
+                    }
+                })
+            } else if (filter === 'tipe_saluran') {
+                legend.tipe_saluran.map((data, i) => {
+                    if (val.tipe_saluran === data.name) {
+                        color = data.color
+                    }
+                })
+            }else if (filter === 'kondisi_saluran') {
+                legend.kondisi_saluran.map((data, i) => {
+                    if (val.kondisi_saluran === data.name) {
+                        color = data.color
+                    }
+                })
+            } else if (filter === 'jaringan') {
+                legend.jaringan.map((data, i) => {
+                    if (val.name === data.name) {
+                        color = data.color
+                    }
+                })
+            } else {
+                return {
+                    color: "#fdcb6e"
+                }
+            }
         }else{
-            document.querySelector('.sidebar').style.right = '20px'
-        }
-       
-    }
-
-    
-
-    const styleKondisi = (kondisi) => {
-        if (kondisi === "Sangat Baik") {
             return {
-                color: '#4cd137'
-            }
-        } else if (kondisi === "Cukup Baik") {
-            return {
-                color: '#0097e6'
-            }
-        } else if (kondisi === "Baik") {
-            return {
-                color: '#8c7ae6'
-            }
-        } else {
-            return {
-                color: '#e84118'
+                color: "#fdcb6e"
             }
         }
-    }
 
-    const styleKonstruksi = (konstruksi) => {
-        if (konstruksi === "Beton") {
-            return {
-                color: '#4cd137'
-            }
-        } else if (konstruksi === "Campuran") {
-            return {
-                color: '#0097e6'
-            }
-        } else {
-            return {
-                color: '#e84118'
-            }
-        }
+        return { color: color }
     }
 
     const over = (e) => {
@@ -111,10 +123,13 @@ function RootApp({ datas, filter, openModal, getAllDatas, getSumDatas, toShow })
         }
     }
 
+
     return (
         <div>
             <Sidebar />
             <Chart />
+            {isDesktop ?  <Legend /> : ''}
+           
             <MapContainer
                 className="sidebar-map"
                 center={view}
@@ -128,24 +143,20 @@ function RootApp({ datas, filter, openModal, getAllDatas, getSumDatas, toShow })
                         { height: "100vh", width: "100vw", zIndex: 1 }
                 }
             >
-                {/* <TileLayer
-                    url={url}
-                    attribution='Map data &copy; <a href=&quot;https://www.openstreetmap.org/&quot;>OpenStreetMap</a> contributors, <a href=&quot;https://creativecommons.org/licenses/by-sa/2.0/&quot;>CC-BY-SA</a>, Imagery &copy; <a href=&quot;https://www.mapbox.com/&quot;>Mapbox</a> - Databse irigasi PUPR Kota Singkawang'
-                /> */}
-                    <LayersControl position="bottomleft" >
-                        <LayersControl.BaseLayer checked={!sat} name="Sattelite">
-                            <TileLayer
-                                attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-                                url="https://api.mapbox.com/styles/v1/mapbox/satellite-v9/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoiZGluYXJ0ZWNoIiwiYSI6ImNrcDV0Ym1xaDA3dTIzMW5zaXJsbmViNmwifQ.CuHZsA_wzhmanNCIs5jYEw"
-                            />
-                        </LayersControl.BaseLayer>
-                        <LayersControl.BaseLayer checked={sat} name="OpenStreetMap.BlackAndWhite">
-                            <TileLayer
-                                attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-                                url="https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoiZGluYXJ0ZWNoIiwiYSI6ImNrcDV0Ym1xaDA3dTIzMW5zaXJsbmViNmwifQ.CuHZsA_wzhmanNCIs5jYEw"
-                            />
-                        </LayersControl.BaseLayer>
-                    </LayersControl>
+                <LayersControl position="bottomleft" >
+                    <LayersControl.BaseLayer checked={!sat} name="Sattelite">
+                        <TileLayer
+                            attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                            url="https://api.mapbox.com/styles/v1/mapbox/satellite-v9/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoiZGluYXJ0ZWNoIiwiYSI6ImNrcDV0Ym1xaDA3dTIzMW5zaXJsbmViNmwifQ.CuHZsA_wzhmanNCIs5jYEw"
+                        />
+                    </LayersControl.BaseLayer>
+                    <LayersControl.BaseLayer checked={sat} name="OpenStreetMap.BlackAndWhite">
+                        <TileLayer
+                            attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                            url="https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoiZGluYXJ0ZWNoIiwiYSI6ImNrcDV0Ym1xaDA3dTIzMW5zaXJsbmViNmwifQ.CuHZsA_wzhmanNCIs5jYEw"
+                        />
+                    </LayersControl.BaseLayer>
+                </LayersControl>
 
                 {datas.length === 0 ?
                     ""
@@ -154,19 +165,12 @@ function RootApp({ datas, filter, openModal, getAllDatas, getSumDatas, toShow })
                         {datas.map((data, i) =>
                             <GeoJSON
                                 key={i}
-                                style={
-                                    filter === 'kondisi' ? styleKondisi(data.kondisi) : styleKonstruksi(data.konstruksi)
-                                }
+                                style={filter !== "" ? styleLegend(data) : {color: "blue"}}
                                 data={JSON.parse(data.json).features}
                                 onEachFeature={(feature, layer) => {
                                     layer.on('click', function (e) {
                                         toShow(data)
                                         showSidebar()
-                                        // setView(e.latlng)
-                                        // setZoom(2)
-                                        // e.target.setStyle({
-                                        //     weight: 10
-                                        // })
                                     })
 
                                     layer.on('mouseover', function (e) {
@@ -188,7 +192,7 @@ function RootApp({ datas, filter, openModal, getAllDatas, getSumDatas, toShow })
                 }
             </MapContainer>
             <div className="changemapstyle" onClick={changeStyleMap}>
-                <img src={sat ?  citra : street } />
+                <img src={sat ? citra : street} />
             </div>
             <ButtonControl />
         </div>
@@ -198,7 +202,10 @@ function RootApp({ datas, filter, openModal, getAllDatas, getSumDatas, toShow })
 const mapStateToProps = ({ app }) => {
     return {
         datas: app.datas,
-        openModal: app.openModal
+        openModal: app.openModal,
+        sumDatas: app.sumDatas,
+        filter: app.filter,
+        legend: app.legend
     }
 }
 

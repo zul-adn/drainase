@@ -3,39 +3,50 @@ const initialState = {
     filter: '',
     openModal: false,
     toShow: [],
-    sumDatas: []
+    sumDatas: [],
+    legend: []
 }
 
 export default (state = initialState, action) => {
     switch (action.type) {
         case 'STORE_ALL_DATAS':
-            return{
+            return {
                 ...state,
-                datas : action.datas,
+                datas: action.datas,
             }
         case 'CHANGE_DATAS':
-            return{
+            return {
                 ...state,
-                datas : action.datas,
-                filter : action.filter
+                datas: action.datas,
+                filter: action.filter
             }
         case 'CHANGE_MODAL':
-            return{
+            return {
                 ...state,
                 openModal: !state.openModal
             }
         case 'TO_SHOW':
-            return{
+            return {
                 ...state,
                 toShow: action.datas
             }
         case 'CHANGE_DATAS_SUM':
-            return{
+            return {
                 ...state,
                 sumDatas: action.datas
             }
+        case 'CREATE_LEGEND':
+            return {
+                ...state,
+                legend: action.datas
+            }
+        case 'CHANGE_FILTER':
+            return {
+                ...state,
+                filter: action.datas
+            }
         default:
             return state
-        
+
     }
 }

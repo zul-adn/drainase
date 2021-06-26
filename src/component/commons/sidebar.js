@@ -22,6 +22,7 @@ function Sidebar({ toShow }) {
             document.querySelector('.sidebar').style.bottom = '-100vh'
         }else{
             document.querySelector('.sidebar').style.right = '-700px'
+            document.querySelector('.legend').style.height = '85vh'
         }
 
     }
