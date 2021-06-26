@@ -56,7 +56,7 @@ function RootApp({ datas, filter, openModal, getAllDatas, getSumDatas, toShow, s
             document.querySelector('.sidebar').style.bottom = '0'
         } else {
             document.querySelector('.sidebar').style.right = '25px'
-            document.querySelector('.legend').style.height = '20vh'
+            document.querySelector('.legend').style.height = '18vh'
         }
 
     }

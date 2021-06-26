@@ -16,11 +16,11 @@ function Sidebar({ toShow }) {
 
     const closeSidebar = () => {
 
-        if(isTablet){
+        if (isTablet) {
             document.querySelector('.sidebar').style.right = '-700px'
-        }else if(isMobile){
+        } else if (isMobile) {
             document.querySelector('.sidebar').style.bottom = '-100vh'
-        }else{
+        } else {
             document.querySelector('.sidebar').style.right = '-700px'
             document.querySelector('.legend').style.height = '85vh'
         }
@@ -62,46 +62,47 @@ function Sidebar({ toShow }) {
                     </div>
                 </Slider>
             </div>
-
-            <div className="toshow">
-                <div>Nama Jaringan</div>
-                <div>{toShow.name}</div>
-            </div>
-            <div className="toshow">
-                <div>Tipe Saluran</div>
-                <div>{toShow.tipe_saluran}</div>
-            </div>
-            <div className="toshow">
-                <div>Panjang</div>
-                <div>{toShow.panjang} m</div>
-            </div>
-            <div className="toshow">
-                <div>Konstruksi</div>
-                <div>{toShow.konstruksi}</div>
-            </div>
-            <div className="toshow">
-                <div>Kondisi Konstruksi </div>
-                <div>{toShow.kondisi}</div>
-            </div>
-            <div className="toshow">
-                <div>Kondisi Saluran </div>
-                <div>{toShow.kondisi_saluran}</div>
-            </div>
-            <div className="toshow">
-                <div>Lebar Atas </div>
-                <div>{toShow.lebar_atas} m</div>
-            </div>
-            <div className="toshow">
-                <div>Lebar Bawah </div>
-                <div>{toShow.lebar_bawah} m</div>
-            </div>
-            <div className="toshow">
-                <div>Kedalaman </div>
-                <div>{toShow.kedalaman} m</div>
-            </div>
-            <div className="toshow">
-                <div>Catatan </div>
-                <div>{toShow.catatan}</div>
+            <div className="content-sidebar">
+                <div className="toshow">
+                    <div>Nama Jaringan</div>
+                    <div>{toShow.name}</div>
+                </div>
+                <div className="toshow">
+                    <div>Tipe Saluran</div>
+                    <div>{toShow.tipe_saluran}</div>
+                </div>
+                <div className="toshow">
+                    <div>Panjang</div>
+                    <div>{toShow.panjang} m</div>
+                </div>
+                <div className="toshow">
+                    <div>Konstruksi</div>
+                    <div>{toShow.konstruksi}</div>
+                </div>
+                <div className="toshow">
+                    <div>Kondisi Konstruksi </div>
+                    <div>{toShow.kondisi}</div>
+                </div>
+                <div className="toshow">
+                    <div>Kondisi Saluran </div>
+                    <div>{toShow.kondisi_saluran}</div>
+                </div>
+                <div className="toshow">
+                    <div>Lebar Atas </div>
+                    <div>{toShow.lebar_atas} m</div>
+                </div>
+                <div className="toshow">
+                    <div>Lebar Bawah </div>
+                    <div>{toShow.lebar_bawah} m</div>
+                </div>
+                <div className="toshow">
+                    <div>Kedalaman </div>
+                    <div>{toShow.kedalaman} m</div>
+                </div>
+                <div className="toshow">
+                    <div>Catatan </div>
+                    <div>{toShow.catatan}</div>
+                </div>
             </div>
 
         </div >
