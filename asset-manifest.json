@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/drainase/static/css/main.c67c42f7.chunk.css",
-    "main.js": "/drainase/static/js/main.2f6f48d6.chunk.js",
-    "main.js.map": "/drainase/static/js/main.2f6f48d6.chunk.js.map",
+    "main.js": "/drainase/static/js/main.b8e0308b.chunk.js",
+    "main.js.map": "/drainase/static/js/main.b8e0308b.chunk.js.map",
     "runtime-main.js": "/drainase/static/js/runtime-main.0afa68a8.js",
     "runtime-main.js.map": "/drainase/static/js/runtime-main.0afa68a8.js.map",
     "static/css/2.b4875422.chunk.css": "/drainase/static/css/2.b4875422.chunk.css",
@@ -26,6 +26,6 @@
     "static/css/2.b4875422.chunk.css",
     "static/js/2.30e26cd2.chunk.js",
     "static/css/main.c67c42f7.chunk.css",
-    "static/js/main.2f6f48d6.chunk.js"
+    "static/js/main.b8e0308b.chunk.js"
   ]
 }
