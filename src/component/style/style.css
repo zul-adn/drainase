@@ -177,6 +177,7 @@ body {
   .legend{
     position: absolute;
     background-color: #fff;
+    /* backdrop-filter: blur(10px)  saturate(150%); */
     right: 25px;
     width: 400px;
     bottom : 35px;
@@ -260,6 +261,7 @@ body {
     display: flex;
     flex-direction: row;
     padding: 10px;
+    transition: ease-in-out 0.08s;
   }
 
   .legend-item div{
@@ -311,17 +313,24 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     width: 33%;
   }
 
   .btn-control div img {
-    width: 30%;
+    width: 25%;
     cursor: pointer;
     transition: ease-in-out 0.1s;
   }
 
+  .btn-control div span {
+    font-size: 12px;
+    margin-top: 5px;
+  }
+
+
   .btn-control div img:hover {
-    width: 40%;
+    width: 28%;
   }
 
   .changemapstyle {
@@ -1193,4 +1202,11 @@ body {
     border-radius: 20px 20px 0 0;
   }
 
+}
+
+
+.hover:hover{
+  transform: scale(1.01);
+  cursor: pointer;
+  font-weight: bold;
 }

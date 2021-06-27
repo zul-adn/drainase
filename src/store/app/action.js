@@ -7,6 +7,10 @@ export const storeDatasSum = (payload) => ({type : 'CHANGE_DATAS_SUM', datas: pa
 export const OpenCloseModal = () => ({ type: 'CHANGE_MODAL' })
 export const storeLegend = (payload) => ({ type: 'CREATE_LEGEND', datas: payload })
 export const changeFilter = (payload) => ({ type: 'CHANGE_FILTER', datas: payload })
+export const searchMode = (payload) => ({ type: 'SEARCH_ENABLE', datas: payload })
+export const resetSearch = () => ({ type: 'RESET' })
+
+const data = []
 
 const apiAll = 'https://dinartech.com/drainase/public/api/getpolyline';
 const apiSum = 'https://dinartech.com/drainase/public/api/getpolylinesum';
@@ -16,6 +20,7 @@ export const getAllDatas = () => {
         axios.get(apiAll)
         .then((response) => {
             dispatch(storeAllDatas(response.data))
+            data = response.data
         })
         .catch((error) => {
             console.log(error)
@@ -80,3 +85,4 @@ export const getSumDatas = () => {
         })
     }
 }
+

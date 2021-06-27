@@ -4,7 +4,9 @@ const initialState = {
     openModal: false,
     toShow: [],
     sumDatas: [],
-    legend: []
+    legend: [],
+    searchMode: false,
+    searchData: ""
 }
 
 export default (state = initialState, action) => {
@@ -44,6 +46,17 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 filter: action.datas
+            }
+        case 'SEARCH_ENABLE':
+            return{
+                ...state,
+                searchData: action.datas,
+                searchMode: true,
+            }
+        case 'RESET':
+            return{
+                ...state,
+                searchMode: false,
             }
         default:
             return state

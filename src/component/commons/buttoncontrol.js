@@ -1,9 +1,11 @@
 import React from 'react';
 import { isMobile, isTablet } from "react-device-detect";
 
+import { resetSearch } from './../../store/app/action';
+
 import Img1 from './../assets/img/pie-chart.svg';
 import Img2 from './../assets/img/file.svg';
-import Img3 from './../assets/img/magnifier.svg';
+import Img3 from './../assets/img/recycle.svg';
 
 import { connect } from "react-redux";
 
@@ -13,7 +15,7 @@ const ExcelFile = ReactExport.ExcelFile;
 const ExcelSheet = ReactExport.ExcelFile.ExcelSheet;
 const ExcelColumn = ReactExport.ExcelFile.ExcelColumn;
 
-function Buttoncontrol({datas}) {
+function Buttoncontrol({datas, resetSearch}) {
 
     React.useEffect(() => {
       
@@ -22,6 +24,10 @@ function Buttoncontrol({datas}) {
     const excel = () => {
       alert("HELLO")
     }
+
+    const reset = () => {
+        resetSearch()
+    }   
 
     const showChart = () => {
         if(isTablet){
@@ -41,12 +47,15 @@ function Buttoncontrol({datas}) {
         <div className="btn-control">
             <div>
                 <img src={Img1}  onClick={showChart} />
+                <span>Data View</span>
             </div>
             <div>
                 <img src={Img2} onClick={excel} />
+                <span>Excel</span>
             </div>
             <div>
-                <img src={Img3}/>
+                <img src={Img3} onClick={reset}/>
+                <span>Reset</span>
             </div>
         </div>
     )
@@ -60,7 +69,7 @@ const mapStateToProps = ({ app }) => {
 
 const mapDispatchToProps = dispatch => {
     return {
-
+        resetSearch : () => dispatch(resetSearch())
     }
 };
 

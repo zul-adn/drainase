@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { MapContainer, TileLayer, Marker, Popup, GeoJSON, LayersControl } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Popup, GeoJSON, LayersControl, FeatureGroup } from 'react-leaflet';
 import { connect } from "react-redux";
 
 import Modal from 'react-modal';
@@ -8,7 +8,7 @@ import ButtonControl from './commons/buttoncontrol';
 import Chart from './commons/chart';
 import Legend from './commons/legend';
 
-import { getAllDatas, toShow, getSumDatas } from './../store/app/action';
+import { getAllDatas, toShow, getSumDatas, searchMode } from './../store/app/action';
 import { isDesktop, isMobile, isTablet } from "react-device-detect";
 // import SidebarBottom from './commons/sidebarbottom';
 import 'leaflet/dist/leaflet.css';
@@ -33,12 +33,13 @@ const customStyles = {
     },
 };
 
-function RootApp({ datas, filter, openModal, getAllDatas, getSumDatas, toShow, sumDatas, legend }) {
+function RootApp({ searchData, searchMode, datas, filter, openModal, getAllDatas, getSumDatas, toShow, sumDatas, legend }) {
     const [modalIsOpen, setIsOpen] = useState(openModal);
     const [view, setView] = useState([0.886691, 108.9576699])
     const [zoom, setZoom] = useState(11)
     const [sat, setSat] = useState(true)
     const [url, setUrl] = useState('https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoiZGluYXJ0ZWNoIiwiYSI6ImNrcDV0Ym1xaDA3dTIzMW5zaXJsbmViNmwifQ.CuHZsA_wzhmanNCIs5jYEw')
+    const mapRef = React.createRef()
 
     useEffect(() => {
         getData()
@@ -47,6 +48,7 @@ function RootApp({ datas, filter, openModal, getAllDatas, getSumDatas, toShow, s
     const getData = async () => {
         await getAllDatas()
         await getSumDatas()
+        console.log(searchData)
     }
 
     const showSidebar = () => {
@@ -61,54 +63,129 @@ function RootApp({ datas, filter, openModal, getAllDatas, getSumDatas, toShow, s
 
     }
 
-
-
     const styleLegend = (val) => {
-        let color
+        let color, weight
         if (legend.length !== 0) {
             if (filter === 'kondisi') {
-                legend.kondisi.map((data, i) => {
-                    if (val.kondisi === data.name) {
-                        color = data.color
-                    }
-                })
+                if (searchMode) {
+                    legend.kondisi.map((data, i) => {
+                        if ( val.name === searchData) {
+                            if (val.kondisi === data.name) {
+                                color = data.color
+                                weight = 3
+                            }
+                        } else {
+                            color = data.color
+                            weight = 0
+                        }
+                    })
+                } else {
+                    legend.kondisi.map((data, i) => {
+                        if (val.kondisi === data.name) {
+                            color = data.color
+                            weight = 3
+                        }
+                    })
+                }
             } else if (filter === 'konstruksi') {
-                legend.konstruksi.map((data, i) => {
-                    if (val.konstruksi === data.name) {
-                        color = data.color
-                    }
-                })
+                if (searchMode) {
+                    legend.konstruksi.map((data, i) => {
+                        if ( val.name === searchData) {
+                            if (val.konstruksi === data.name) {
+                                color = data.color
+                                weight = 3
+                            }
+                        } else {
+                            color = data.color
+                            weight = 0
+                        }
+                    })
+                } else {
+                    legend.konstruksi.map((data, i) => {
+                        if (val.konstruksi === data.name) {
+                            color = data.color
+                            weight = 3
+                        }
+                    })
+                }
             } else if (filter === 'tipe_saluran') {
-                legend.tipe_saluran.map((data, i) => {
-                    if (val.tipe_saluran === data.name) {
-                        color = data.color
-                    }
-                })
-            }else if (filter === 'kondisi_saluran') {
-                legend.kondisi_saluran.map((data, i) => {
-                    if (val.kondisi_saluran === data.name) {
-                        color = data.color
-                    }
-                })
+                if (searchMode) {
+                    legend.tipe_saluran.map((data, i) => {
+                        if ( val.name === searchData) {
+                            if (val.tipe_saluran === data.name) {
+                                color = data.color
+                                weight = 3
+                            }
+                        } else {
+                            color = data.color
+                            weight = 0
+                        }
+                    })
+                } else {
+                    legend.tipe_saluran.map((data, i) => {
+                        if (val.tipe_saluran === data.name) {
+                            color = data.color
+                            weight = 3
+                        }
+                    })
+                }
+            } else if (filter === 'kondisi_saluran') {
+                if (searchMode) {
+                    legend.kondisi_saluran.map((data, i) => {
+                        if ( val.name === searchData) {
+                            if (val.kondisi_saluran === data.name) {
+                                color = data.color
+                                weight = 3
+                            }
+                        } else {
+                            color = data.color
+                            weight = 0
+                        }
+                    })
+                } else {
+                    legend.kondisi_saluran.map((data, i) => {
+                        if (val.kondisi_saluran === data.name) {
+                            color = data.color
+                            weight = 3
+                        }
+                    })
+                }
             } else if (filter === 'jaringan') {
-                legend.jaringan.map((data, i) => {
-                    if (val.name === data.name) {
-                        color = data.color
-                    }
-                })
+               
+                if (searchMode) {
+                    legend.jaringan.map((data, i) => {
+                        if ( val.name === searchData) {
+                            if (val.name === data.name) {
+                                color = data.color
+                                weight = 3
+                            }
+                        } else {
+                            color = data.color
+                            weight = 0
+                        }
+                    })
+                } else {
+                    legend.jaringan.map((data, i) => {
+                        if (val.name === data.name) {
+                            color = data.color
+                            weight = 3
+                        }
+                    })
+                }
             } else {
                 return {
                     color: "#fdcb6e"
                 }
             }
-        }else{
+        } else {
             return {
                 color: "#fdcb6e"
             }
         }
 
-        return { color: color }
+        return { color: color, weight: weight }
     }
+
 
     const over = (e) => {
         console.log(e)
@@ -123,14 +200,20 @@ function RootApp({ datas, filter, openModal, getAllDatas, getSumDatas, toShow, s
         }
     }
 
+    const removeLayer = () => {
+        const layers = mapRef.current
+        layers.removeLayer()
+    }
+
 
     return (
         <div>
             <Sidebar />
             <Chart />
-            {isDesktop ?  <Legend /> : ''}
-           
+            {isDesktop ? <Legend /> : ''}
+
             <MapContainer
+                ref={mapRef}
                 className="sidebar-map"
                 center={view}
                 zoom={12}
@@ -158,38 +241,39 @@ function RootApp({ datas, filter, openModal, getAllDatas, getSumDatas, toShow, s
                     </LayersControl.BaseLayer>
                 </LayersControl>
 
-                {datas.length === 0 ?
-                    ""
-                    :
-                    <>
-                        {datas.map((data, i) =>
-                            <GeoJSON
-                                key={i}
-                                style={filter !== "" ? styleLegend(data) : {color: "blue"}}
-                                data={JSON.parse(data.json).features}
-                                onEachFeature={(feature, layer) => {
-                                    layer.on('click', function (e) {
-                                        toShow(data)
-                                        showSidebar()
-                                    })
 
-                                    layer.on('mouseover', function (e) {
-                                        e.target.setStyle({
-                                            weight: 7
-                                        })
-                                    })
+                <FeatureGroup
+                    ref={mapRef}
+                >
+                    {datas.map((data, i) =>
+                        <GeoJSON
+                            key={i}
+                            style={filter !== "" ? styleLegend(data) : { color: "blue" }}
+                            data={JSON.parse(data.json).features}
+                            onEachFeature={(feature, layer) => {
+                                layer.on('click', function (e) {
+                                    toShow(data)
+                                    showSidebar()
+                                })
 
-                                    layer.on('mouseout', function (e) {
-                                        e.target.setStyle({
-                                            weight: 3
-                                        })
+                                layer.on('mouseover', function (e) {
+                                    e.target.setStyle({
+                                        weight: 7
                                     })
-                                }}
-                            >
-                            </GeoJSON>
-                        )}
-                    </>
-                }
+                                })
+
+                                layer.on('mouseout', function (e) {
+                                    e.target.setStyle({
+                                        weight: 3
+                                    })
+                                })
+                            }}
+                        >
+                        </GeoJSON>
+                    )}
+                </FeatureGroup>
+
+
             </MapContainer>
             <div className="changemapstyle" onClick={changeStyleMap}>
                 <img src={sat ? citra : street} />
@@ -205,7 +289,9 @@ const mapStateToProps = ({ app }) => {
         openModal: app.openModal,
         sumDatas: app.sumDatas,
         filter: app.filter,
-        legend: app.legend
+        legend: app.legend,
+        searchMode: app.searchMode,
+        searchData: app.searchData,
     }
 }
 

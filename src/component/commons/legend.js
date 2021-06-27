@@ -1,13 +1,17 @@
 import React from 'react';
 import { connect } from "react-redux";
-import { changeFilter } from './../../store/app/action';
+import { changeFilter, searchMode} from './../../store/app/action';
 import './../style/style.css';
 
-function Legend({ changeFilter, filter, legend }) {
+function Legend({ changeFilter, filter, legend, sumDatas, datas, searchMode }) {
 
     const changeFilters = (val) => {
         console.log(val)
         changeFilter(val)
+    }
+
+    const searchData = (val) => {
+        searchMode(val)
     }
 
     const Content = () => {
@@ -34,7 +38,7 @@ function Legend({ changeFilter, filter, legend }) {
                 <>
                     {legend.length !== 0 ?
                         legend.jaringan.map((data, i) =>
-                            <div className="legend-item">
+                            <div className="legend-item hover" onClick={() => searchData(data.name)}>
                                 <div> {data.name} </div>
                                 <div style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center' }}>
                                     <div style={{ width: '80%', height: 4, backgroundColor: data.color }} />
@@ -157,13 +161,16 @@ function Legend({ changeFilter, filter, legend }) {
 const mapStateToProps = ({ app }) => {
     return {
         legend: app.legend,
-        filter: app.filter
+        filter: app.filter,
+        sumDatas: app.sumDatas,
+        datas: app.datas
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        changeFilter: (payload) => dispatch(changeFilter(payload))
+        changeFilter: (payload) => dispatch(changeFilter(payload)),
+        searchMode: (payload) => dispatch(searchMode(payload))
     }
 };
 
