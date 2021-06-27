@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/drainase/static/css/main.32f80cfb.chunk.css",
-    "main.js": "/drainase/static/js/main.3ee8cd73.chunk.js",
-    "main.js.map": "/drainase/static/js/main.3ee8cd73.chunk.js.map",
-    "runtime-main.js": "/drainase/static/js/runtime-main.d02322ea.js",
-    "runtime-main.js.map": "/drainase/static/js/runtime-main.d02322ea.js.map",
+    "main.css": "/drainase/static/css/main.c67c42f7.chunk.css",
+    "main.js": "/drainase/static/js/main.2f6f48d6.chunk.js",
+    "main.js.map": "/drainase/static/js/main.2f6f48d6.chunk.js.map",
+    "runtime-main.js": "/drainase/static/js/runtime-main.0afa68a8.js",
+    "runtime-main.js.map": "/drainase/static/js/runtime-main.0afa68a8.js.map",
     "static/css/2.b4875422.chunk.css": "/drainase/static/css/2.b4875422.chunk.css",
-    "static/js/2.b325f76b.chunk.js": "/drainase/static/js/2.b325f76b.chunk.js",
-    "static/js/2.b325f76b.chunk.js.map": "/drainase/static/js/2.b325f76b.chunk.js.map",
-    "static/js/3.bd91d9cf.chunk.js": "/drainase/static/js/3.bd91d9cf.chunk.js",
-    "static/js/3.bd91d9cf.chunk.js.map": "/drainase/static/js/3.bd91d9cf.chunk.js.map",
+    "static/js/2.30e26cd2.chunk.js": "/drainase/static/js/2.30e26cd2.chunk.js",
+    "static/js/2.30e26cd2.chunk.js.map": "/drainase/static/js/2.30e26cd2.chunk.js.map",
+    "static/js/3.892acd5b.chunk.js": "/drainase/static/js/3.892acd5b.chunk.js",
+    "static/js/3.892acd5b.chunk.js.map": "/drainase/static/js/3.892acd5b.chunk.js.map",
     "index.html": "/drainase/index.html",
     "static/css/2.b4875422.chunk.css.map": "/drainase/static/css/2.b4875422.chunk.css.map",
-    "static/css/main.32f80cfb.chunk.css.map": "/drainase/static/css/main.32f80cfb.chunk.css.map",
-    "static/js/2.b325f76b.chunk.js.LICENSE.txt": "/drainase/static/js/2.b325f76b.chunk.js.LICENSE.txt",
+    "static/css/main.c67c42f7.chunk.css.map": "/drainase/static/css/main.c67c42f7.chunk.css.map",
+    "static/js/2.30e26cd2.chunk.js.LICENSE.txt": "/drainase/static/js/2.30e26cd2.chunk.js.LICENSE.txt",
     "static/media/citra.8f8c1291.PNG": "/drainase/static/media/citra.8f8c1291.PNG",
     "static/media/file.8fa05ea9.svg": "/drainase/static/media/file.8fa05ea9.svg",
     "static/media/logo.6ce24c58.svg": "/drainase/static/media/logo.6ce24c58.svg",
@@ -22,10 +22,10 @@
     "static/media/street.a0c65420.PNG": "/drainase/static/media/street.a0c65420.PNG"
   },
   "entrypoints": [
-    "static/js/runtime-main.d02322ea.js",
+    "static/js/runtime-main.0afa68a8.js",
     "static/css/2.b4875422.chunk.css",
-    "static/js/2.b325f76b.chunk.js",
-    "static/css/main.32f80cfb.chunk.css",
-    "static/js/main.3ee8cd73.chunk.js"
+    "static/js/2.30e26cd2.chunk.js",
+    "static/css/main.c67c42f7.chunk.css",
+    "static/js/main.2f6f48d6.chunk.js"
   ]
 }
