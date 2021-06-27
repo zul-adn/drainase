@@ -1,9 +1,11 @@
 import React from 'react';
 import { connect } from "react-redux";
-import { changeFilter, searchMode} from './../../store/app/action';
+import { changeFilter, searchMode } from './../../store/app/action';
 import './../style/style.css';
 
 function Legend({ changeFilter, filter, legend, sumDatas, datas, searchMode }) {
+
+    const [dataToShow, setDataToShow] = React.useState([])
 
     const changeFilters = (val) => {
         console.log(val)
@@ -12,6 +14,13 @@ function Legend({ changeFilter, filter, legend, sumDatas, datas, searchMode }) {
 
     const searchData = (val) => {
         searchMode(val)
+        document.querySelector('.content2').style.display = "block"
+        document.querySelector('.content-legend').style.height = "20%"
+        const dataa = sumDatas.all.filter(item => {
+            return item.nama_jaringan === val
+        })
+        console.log(dataa)
+        setDataToShow(dataa)
     }
 
     const Content = () => {
@@ -139,7 +148,94 @@ function Legend({ changeFilter, filter, legend, sumDatas, datas, searchMode }) {
                 </div>
 
             </div>
-            <div className="content">
+            <div className="content2">
+                <div className="header2 animate__animated animate__bounceInLeft">
+                    <span>{dataToShow.length !== 0 ? dataToShow[0]['nama_jaringan'] : ''} - {dataToShow.length !== 0 ? dataToShow[0]['panjang'] : ''} m</span>
+                </div>
+                
+                <div className="content-detail animate__animated animate__bounceInLeft">
+                    <div style={{ textAlign:'center' }}>
+                        <span>Tipe Saluran (meter)</span>
+                    </div>
+                    {dataToShow.length !== 0 ?
+                        dataToShow.map((data, i) =>
+                            <div className="detail-grid">
+                                {data.tipe_saluran.map((data2, i) =>
+                                    <div>
+                                        <div style={{ fontSize:18 }}>{data2.panjang}</div>
+                                        <div style={{ fontSize:12 }}>{data2.tipe_saluran}</div>
+                                    </div>
+                                )}
+                            </div>
+                        )
+                        :
+                        <></>
+                    }
+                </div>
+
+                <div className="content-detail animate__animated animate__bounceInLeft">
+                    <div style={{ textAlign:'center' }}>
+                        <span>Kondisi (meter)</span>
+                    </div>
+                    {dataToShow.length !== 0 ?
+                        dataToShow.map((data, i) =>
+                            <div className="detail-grid">
+                                {data.kondisi.map((data2, i) =>
+                                    <div>
+                                        <div style={{ fontSize:18 }}>{data2.panjang}</div>
+                                        <div style={{ fontSize:12 }}>{data2.kondisi}</div>
+                                    </div>
+                                )}
+                            </div>
+                        )
+                        :
+                        <></>
+                    }
+                </div>
+
+                <div className="content-detail animate__animated animate__bounceInLeft">
+                    <div style={{ textAlign:'center' }}>
+                        <span>Konstruksi (meter)</span>
+                    </div>
+                    {dataToShow.length !== 0 ?
+                        dataToShow.map((data, i) =>
+                            <div className="detail-grid">
+                                {data.konstruksi.map((data2, i) =>
+                                    <div>
+                                        <div style={{ fontSize:18 }}>{data2.panjang}</div>
+                                        <div style={{ fontSize:12 }}>{data2.konstruksi}</div>
+                                    </div>
+                                )}
+                            </div>
+                        )
+                        :
+                        <></>
+                    }
+                </div>
+
+                <div className="content-detail animate__animated animate__bounceInLeft">
+                    <div style={{ textAlign:'center' }}>
+                        <span>Kondisi Saluran (meter)</span>
+                    </div>
+                    {dataToShow.length !== 0 ?
+                        dataToShow.map((data, i) =>
+                            <div className="detail-grid">
+                                {data.kondisi_saluran.map((data2, i) =>
+                                    <div>
+                                        <div style={{ fontSize:18 }}>{data2.panjang}</div>
+                                        <div style={{ fontSize:12 }}>{data2.kondisi_saluran}</div>
+                                    </div>
+                                )}
+                            </div>
+                        )
+                        :
+                        <></>
+                    }
+
+                </div>
+
+            </div>
+            <div className="content-legend">
                 <Content />
             </div>
             {/* <button onClick={() => changeFilters("kondisi")}>

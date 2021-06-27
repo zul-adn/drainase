@@ -47,16 +47,33 @@ const dataSet2 = [
 ];
 
 
-export default function excel() {
+function Excel({sumDatas}) {
+
+    React.useEffect(() => {
+        console.log(sumDatas)
+    })
+
     return (
         <ExcelFile>
-            <ExcelSheet data={dataSet1} name="Employees">
-                <ExcelColumn label="Name" value="name" />
-                <ExcelColumn label="Wallet Money" value="amount" />
-                <ExcelColumn label="Gender" value="sex" />
-                <ExcelColumn label="Marital Status"
-                    value={(col) => col.is_married ? "Married" : "Single"} />
+            <ExcelSheet data={sumDatas.all} name="Employees">
+                <ExcelColumn label="Nama Jaringan" value="nama_jaringan" />
+                <ExcelColumn label="Panjang Jaringan" value="panjang" />
             </ExcelSheet>
         </ExcelFile>
     )
 }
+
+const mapStateToProps = ({ app }) => {
+    return {
+        sumDatas: app.sumDatas,
+        datas: app.datas
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+
+    }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Excel);

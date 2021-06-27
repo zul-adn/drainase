@@ -11,10 +11,10 @@ import { connect } from "react-redux";
 
 import DownloadExcel from './excel';
 
-function Buttoncontrol({datas, resetSearch}) {
+function Buttoncontrol({ datas, resetSearch }) {
 
     React.useEffect(() => {
-      
+
     })
 
     const excel = () => {
@@ -23,37 +23,39 @@ function Buttoncontrol({datas, resetSearch}) {
 
     const reset = () => {
         resetSearch()
-    }   
-    
+        document.querySelector('.content2').style.display = "none"
+        document.querySelector('.content-legend').style.height = "67%"
+
+    }
+
 
     const showChart = () => {
-        if(isTablet){
+        if (isTablet) {
             document.querySelector('.close-chart').style.display = 'flex'
             document.querySelector('.chart').style.display = 'block'
-           
-        }else if(isMobile){
+
+        } else if (isMobile) {
             document.querySelector('.close-chart').style.display = 'flex'
             document.querySelector('.chart').style.display = 'block'
-        }else{
+        } else {
             document.querySelector('.close-chart').style.display = 'flex'
             document.querySelector('.chart').style.display = 'block'
         }
     }
-    
+
     return (
         <div className="btn-control">
-            <DownloadExcel />
             <div>
-                <img src={Img1}  onClick={showChart} />
-                <span>Data View</span>
+                <img src={Img1} onClick={showChart} />
+                {isMobile ? "" : <span>Data View</span>}
             </div>
             <div>
                 <img src={Img2} onClick={excel} />
-                <span>Excel</span>
+                {isMobile ? "" : <span>Excel</span>}
             </div>
             <div>
-                <img src={Img3} onClick={reset}/>
-                <span>Reset</span>
+                <img src={Img3} onClick={reset} />
+                {isMobile ? "" : <span>Reset</span>}
             </div>
         </div>
     )
@@ -67,7 +69,7 @@ const mapStateToProps = ({ app }) => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        resetSearch : () => dispatch(resetSearch())
+        resetSearch: () => dispatch(resetSearch())
     }
 };
 
