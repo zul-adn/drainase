@@ -9,11 +9,7 @@ import Img3 from './../assets/img/recycle.svg';
 
 import { connect } from "react-redux";
 
-import ReactExport from "react-data-export";
-
-const ExcelFile = ReactExport.ExcelFile;
-const ExcelSheet = ReactExport.ExcelFile.ExcelSheet;
-const ExcelColumn = ReactExport.ExcelFile.ExcelColumn;
+import DownloadExcel from './excel';
 
 function Buttoncontrol({datas, resetSearch}) {
 
@@ -22,12 +18,13 @@ function Buttoncontrol({datas, resetSearch}) {
     })
 
     const excel = () => {
-      alert("HELLO")
+        <DownloadExcel />
     }
 
     const reset = () => {
         resetSearch()
     }   
+    
 
     const showChart = () => {
         if(isTablet){
@@ -45,6 +42,7 @@ function Buttoncontrol({datas, resetSearch}) {
     
     return (
         <div className="btn-control">
+            <DownloadExcel />
             <div>
                 <img src={Img1}  onClick={showChart} />
                 <span>Data View</span>

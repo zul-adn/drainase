@@ -21,7 +21,7 @@ function Legend({ changeFilter, filter, legend, sumDatas, datas, searchMode }) {
                 <>
                     {legend.length !== 0 ?
                         legend.kondisi.map((data, i) =>
-                            <div className="legend-item">
+                            <div className="legend-item hover" onClick={() => searchData(data.name)}>
                                 <div> {data.name} </div>
                                 <div style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center' }}>
                                     <div style={{ width: '80%', height: 4, backgroundColor: data.color }} />
@@ -55,7 +55,7 @@ function Legend({ changeFilter, filter, legend, sumDatas, datas, searchMode }) {
                 <>
                     {legend.length !== 0 ?
                         legend.tipe_saluran.map((data, i) =>
-                            <div className="legend-item">
+                            <div className="legend-item hover" onClick={() => searchData(data.name)}>
                                 <div> {data.name} </div>
                                 <div style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center' }}>
                                     <div style={{ width: '80%', height: 4, backgroundColor: data.color }} />
@@ -72,7 +72,7 @@ function Legend({ changeFilter, filter, legend, sumDatas, datas, searchMode }) {
                 <>
                     {legend.length !== 0 ?
                         legend.konstruksi.map((data, i) =>
-                            <div className="legend-item">
+                            <div className="legend-item hover" onClick={() => searchData(data.name)}>
                                 <div> {data.name} </div>
                                 <div style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center' }}>
                                     <div style={{ width: '80%', height: 4, backgroundColor: data.color }} />
@@ -89,7 +89,7 @@ function Legend({ changeFilter, filter, legend, sumDatas, datas, searchMode }) {
                 <>
                     {legend.length !== 0 ?
                         legend.kondisi_saluran.map((data, i) =>
-                            <div className="legend-item">
+                            <div className="legend-item hover" onClick={() => searchData(data.name)}>
                                 <div> {data.name} </div>
                                 <div style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center' }}>
                                     <div style={{ width: '80%', height: 4, backgroundColor: data.color }} />

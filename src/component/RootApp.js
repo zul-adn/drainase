@@ -69,7 +69,7 @@ function RootApp({ searchData, searchMode, datas, filter, openModal, getAllDatas
             if (filter === 'kondisi') {
                 if (searchMode) {
                     legend.kondisi.map((data, i) => {
-                        if ( val.name === searchData) {
+                        if ( val.name === searchData || val.tipe_saluran === searchData || val.kondisi === searchData ||  val.konstruksi === searchData ||  val.kondisi_saluran === searchData) {
                             if (val.kondisi === data.name) {
                                 color = data.color
                                 weight = 3
@@ -90,7 +90,7 @@ function RootApp({ searchData, searchMode, datas, filter, openModal, getAllDatas
             } else if (filter === 'konstruksi') {
                 if (searchMode) {
                     legend.konstruksi.map((data, i) => {
-                        if ( val.name === searchData) {
+                        if ( val.name === searchData || val.tipe_saluran === searchData || val.kondisi === searchData ||  val.konstruksi === searchData ||  val.kondisi_saluran === searchData) {
                             if (val.konstruksi === data.name) {
                                 color = data.color
                                 weight = 3
@@ -111,7 +111,7 @@ function RootApp({ searchData, searchMode, datas, filter, openModal, getAllDatas
             } else if (filter === 'tipe_saluran') {
                 if (searchMode) {
                     legend.tipe_saluran.map((data, i) => {
-                        if ( val.name === searchData) {
+                        if ( val.name === searchData || val.tipe_saluran === searchData || val.kondisi === searchData ||  val.konstruksi === searchData ||  val.kondisi_saluran === searchData) {
                             if (val.tipe_saluran === data.name) {
                                 color = data.color
                                 weight = 3
@@ -132,7 +132,7 @@ function RootApp({ searchData, searchMode, datas, filter, openModal, getAllDatas
             } else if (filter === 'kondisi_saluran') {
                 if (searchMode) {
                     legend.kondisi_saluran.map((data, i) => {
-                        if ( val.name === searchData) {
+                        if ( val.name === searchData || val.tipe_saluran === searchData || val.kondisi === searchData ||  val.konstruksi === searchData ||  val.kondisi_saluran === searchData) {
                             if (val.kondisi_saluran === data.name) {
                                 color = data.color
                                 weight = 3
@@ -154,7 +154,7 @@ function RootApp({ searchData, searchMode, datas, filter, openModal, getAllDatas
                
                 if (searchMode) {
                     legend.jaringan.map((data, i) => {
-                        if ( val.name === searchData) {
+                        if ( val.name === searchData || val.tipe_saluran === searchData || val.kondisi === searchData ||  val.konstruksi === searchData ||  val.kondisi_saluran === searchData) {
                             if (val.name === data.name) {
                                 color = data.color
                                 weight = 3
