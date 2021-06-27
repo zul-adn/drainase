@@ -12,13 +12,18 @@ function Legend({ changeFilter, filter, legend, sumDatas, datas, searchMode }) {
         changeFilter(val)
     }
 
-    const searchData = (val) => {
+    const searchData = (val, val2) => {
         searchMode(val)
+        console.log(val)
         document.querySelector('.content2').style.display = "block"
         document.querySelector('.content-legend').style.height = "20%"
         const dataa = sumDatas.all.filter(item => {
             return item.nama_jaringan === val
         })
+        if(val2 !== "jaringan"){
+            document.querySelector('.content2').style.display = "none"
+            document.querySelector('.content-legend').style.height = "67%"
+        }
         console.log(dataa)
         setDataToShow(dataa)
     }
@@ -30,7 +35,7 @@ function Legend({ changeFilter, filter, legend, sumDatas, datas, searchMode }) {
                 <>
                     {legend.length !== 0 ?
                         legend.kondisi.map((data, i) =>
-                            <div className="legend-item hover" onClick={() => searchData(data.name)}>
+                            <div className="legend-item hover" onClick={() => searchData(data.name, "kondisi")}>
                                 <div> {data.name} </div>
                                 <div style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center' }}>
                                     <div style={{ width: '80%', height: 4, backgroundColor: data.color }} />
@@ -47,7 +52,7 @@ function Legend({ changeFilter, filter, legend, sumDatas, datas, searchMode }) {
                 <>
                     {legend.length !== 0 ?
                         legend.jaringan.map((data, i) =>
-                            <div className="legend-item hover" onClick={() => searchData(data.name)}>
+                            <div className="legend-item hover" onClick={() => searchData(data.name, "jaringan")}>
                                 <div> {data.name} </div>
                                 <div style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center' }}>
                                     <div style={{ width: '80%', height: 4, backgroundColor: data.color }} />
@@ -64,7 +69,7 @@ function Legend({ changeFilter, filter, legend, sumDatas, datas, searchMode }) {
                 <>
                     {legend.length !== 0 ?
                         legend.tipe_saluran.map((data, i) =>
-                            <div className="legend-item hover" onClick={() => searchData(data.name)}>
+                            <div className="legend-item hover" onClick={() => searchData(data.name, "tipe_saluran")}>
                                 <div> {data.name} </div>
                                 <div style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center' }}>
                                     <div style={{ width: '80%', height: 4, backgroundColor: data.color }} />
@@ -81,7 +86,7 @@ function Legend({ changeFilter, filter, legend, sumDatas, datas, searchMode }) {
                 <>
                     {legend.length !== 0 ?
                         legend.konstruksi.map((data, i) =>
-                            <div className="legend-item hover" onClick={() => searchData(data.name)}>
+                            <div className="legend-item hover" onClick={() => searchData(data.name, "konstruksi")}>
                                 <div> {data.name} </div>
                                 <div style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center' }}>
                                     <div style={{ width: '80%', height: 4, backgroundColor: data.color }} />
@@ -98,7 +103,7 @@ function Legend({ changeFilter, filter, legend, sumDatas, datas, searchMode }) {
                 <>
                     {legend.length !== 0 ?
                         legend.kondisi_saluran.map((data, i) =>
-                            <div className="legend-item hover" onClick={() => searchData(data.name)}>
+                            <div className="legend-item hover" onClick={() => searchData(data.name, "kondisi_saluran")}>
                                 <div> {data.name} </div>
                                 <div style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center' }}>
                                     <div style={{ width: '80%', height: 4, backgroundColor: data.color }} />
