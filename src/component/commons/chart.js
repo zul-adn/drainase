@@ -129,6 +129,19 @@ function Chart({ sumDatas }) {
                 </div>
             </div>
 
+            
+            <div className="main-chart animate__animated animate__bounceInLeft" style={{ marginTop:50 }}>
+                <div className="header">
+                    <div className="main-text">
+                        100298
+                    </div>
+                    <div className="sub-text">
+                        Total panjang Sungai Kota Singkawang
+                    </div>
+                </div>
+            </div>
+
+
             <div class="category-container animate__animated animate__fadeInUp">
                 {sumDatas.length !== 0 ?
                     sumDatas.all.map((data, i) =>
