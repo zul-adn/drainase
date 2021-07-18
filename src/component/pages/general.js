@@ -116,7 +116,7 @@ function General({ sumDatas, login }) {
                                     </div>
                                     <h4><a href=""> {sumDatas.length !== 0 ?
                                         <NumberFormat
-                                            value="301231"
+                                            value="30123"
                                             displayType={'text'}
                                             thousandSeparator={true}
                                             renderText={formattedValue => <>{formattedValue} m</>}
