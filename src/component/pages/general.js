@@ -25,7 +25,7 @@ function General({ sumDatas, login }) {
         <>
             <header id="header" className="fixed-top header-scrolled">
                 <div className="container d-flex align-items-center justify-content-between">
-                    <h1 className="logo"><a href="index.html">SIGANAS</a></h1>
+                    <h1 className="logo"><a href="index.html">SIGEONAS</a></h1>
 
                     <a href="index.html" className="logo"><img src="assets/img/logo.png" alt="" className="img-fluid" /></a>
 
@@ -166,7 +166,7 @@ function General({ sumDatas, login }) {
                         <div className="row">
 
                             <div className="col-lg-6 col-md-6 footer-contact">
-                                <h3>SIGANAS</h3>
+                                <h3>SIGEONAS</h3>
                                 <p>
                                     Sistem Informasi Geografis Drainase dan Sungai <br /><br />
 
