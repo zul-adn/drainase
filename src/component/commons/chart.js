@@ -54,7 +54,12 @@ function Chart({ sumDatas }) {
                                         sumDatas.tipe_saluran.map((data, i) =>
                                             <div>
                                                 <div className="main animate__animated animate__flipInX animate__delay-1s">
-                                                    {data.panjang}
+                                                    <NumberFormat
+                                                        value={data.panjang}
+                                                        displayType={'text'}
+                                                        thousandSeparator={true}
+                                                        renderText={formattedValue => <>{formattedValue} m</>}
+                                                    />
                                                 </div>
                                                 <div className="sub animate__animated animate__fadeInUp animate__delay-1s">
                                                     {data.tipe_saluran}
@@ -76,7 +81,12 @@ function Chart({ sumDatas }) {
                                         sumDatas.kondisi.map((data, i) =>
                                             <div>
                                                 <div className="main animate__animated animate__flipInX animate__delay-1s">
-                                                    {data.panjang}
+                                                    <NumberFormat
+                                                        value={data.panjang}
+                                                        displayType={'text'}
+                                                        thousandSeparator={true}
+                                                        renderText={formattedValue => <>{formattedValue} m</>}
+                                                    />
                                                 </div>
                                                 <div className="sub animate__animated animate__fadeInUp animate__delay-1s">
                                                     {data.kondisi}
@@ -98,7 +108,12 @@ function Chart({ sumDatas }) {
                                         sumDatas.konstruksi.map((data, i) =>
                                             <div>
                                                 <div className="main animate__animated animate__flipInX animate__delay-1s">
-                                                    {data.panjang}
+                                                    <NumberFormat
+                                                        value={data.panjang}
+                                                        displayType={'text'}
+                                                        thousandSeparator={true}
+                                                        renderText={formattedValue => <>{formattedValue} m</>}
+                                                    />
                                                 </div>
                                                 <div className="sub animate__animated animate__fadeInUp animate__delay-1s">
                                                     {data.konstruksi}
@@ -120,7 +135,12 @@ function Chart({ sumDatas }) {
                                         sumDatas.kondisi_saluran.map((data, i) =>
                                             <div>
                                                 <div className="main animate__animated animate__flipInX animate__delay-1s">
-                                                    {data.panjang}
+                                                    <NumberFormat
+                                                        value={data.panjang}
+                                                        displayType={'text'}
+                                                        thousandSeparator={true}
+                                                        renderText={formattedValue => <>{formattedValue} m</>}
+                                                    />
                                                 </div>
                                                 <div className="sub animate__animated animate__fadeInUp animate__delay-1s">
                                                     {data.kondisi_saluran}
@@ -156,7 +176,12 @@ function Chart({ sumDatas }) {
                             <div class="category-item">
                                 <div className="header">
                                     <div className="main animate__animated animate__flipInX animate__delay-1s">
-                                        {data.panjang}
+                                        <NumberFormat
+                                            value={data.panjang}
+                                            displayType={'text'}
+                                            thousandSeparator={true}
+                                            renderText={formattedValue => <>{formattedValue} m</>}
+                                        />
                                     </div>
                                     <div className="sub animate__animated animate__fadeInUp animate__delay-1s">
                                         {data.nama_jaringan}
@@ -171,7 +196,12 @@ function Chart({ sumDatas }) {
                                             {data.tipe_saluran.map((tipe, i) =>
                                                 <div className="content-3">
                                                     <div className="angka animate__animated animate__flipInX animate__delay-1s">
-                                                        {tipe.panjang}
+                                                        <NumberFormat
+                                                            value={tipe.panjang}
+                                                            displayType={'text'}
+                                                            thousandSeparator={true}
+                                                            renderText={formattedValue => <>{formattedValue} m</>}
+                                                        />
                                                     </div>
                                                     <div className="ket animate__animated animate__fadeInUp animate__delay-1s">
                                                         {tipe.tipe_saluran}
@@ -189,7 +219,12 @@ function Chart({ sumDatas }) {
                                             {data.kondisi.map((tipe, i) =>
                                                 <div className="content-3">
                                                     <div className="angka animate__animated animate__flipInX animate__delay-1s">
-                                                        {tipe.panjang}
+                                                        <NumberFormat
+                                                            value={tipe.panjang}
+                                                            displayType={'text'}
+                                                            thousandSeparator={true}
+                                                            renderText={formattedValue => <>{formattedValue} m</>}
+                                                        />
                                                     </div>
                                                     <div className="ket animate__animated animate__fadeInUp animate__delay-1s">
                                                         {tipe.kondisi}
@@ -207,7 +242,12 @@ function Chart({ sumDatas }) {
                                             {data.konstruksi.map((tipe, i) =>
                                                 <div className="content-3">
                                                     <div className="angka animate__animated animate__flipInX animate__delay-1s">
-                                                        {tipe.panjang}
+                                                    <NumberFormat
+                                                            value={tipe.panjang}
+                                                            displayType={'text'}
+                                                            thousandSeparator={true}
+                                                            renderText={formattedValue => <>{formattedValue} m</>}
+                                                        />
                                                     </div>
                                                     <div className="ket animate__animated animate__fadeInUp animate__delay-1s">
                                                         {tipe.konstruksi}
@@ -225,7 +265,12 @@ function Chart({ sumDatas }) {
                                             {data.kondisi_saluran.map((tipe, i) =>
                                                 <div className="content-3">
                                                     <div className="angka animate__animated animate__flipInX animate__delay-1s">
-                                                        {tipe.panjang}
+                                                    <NumberFormat
+                                                            value={tipe.panjang}
+                                                            displayType={'text'}
+                                                            thousandSeparator={true}
+                                                            renderText={formattedValue => <>{formattedValue} m</>}
+                                                        />
                                                     </div>
                                                     <div className="ket animate__animated animate__fadeInUp animate__delay-1s">
                                                         {tipe.kondisi_saluran}

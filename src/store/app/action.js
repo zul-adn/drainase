@@ -10,6 +10,8 @@ export const changeFilter = (payload) => ({ type: 'CHANGE_FILTER', datas: payloa
 export const searchMode = (payload) => ({ type: 'SEARCH_ENABLE', datas: payload })
 export const resetSearch = () => ({ type: 'RESET' })
 
+const loginStore = () => ({type: 'LOGIN'})
+
 const data = []
 
 const apiAll = 'https://dinartech.com/drainase/public/api/getpolyline';
@@ -32,6 +34,7 @@ export const getSumDatas = () => {
     return (dispatch) => {
         axios.get(apiSum)
         .then((response) => {
+            console.log(response.data)
             dispatch(storeDatasSum(response.data))
             const kondisi = [],
                 konstruksi = [],
@@ -86,6 +89,12 @@ export const getSumDatas = () => {
     }
 }
 
+
+export const login = (payload) => {
+    return (dispatch) => {
+        dispatch(loginStore())
+    }
+}
 
 // export const searchDataSum = () => {
 //     return (dispatch) = () => {

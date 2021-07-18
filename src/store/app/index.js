@@ -1,12 +1,14 @@
 const initialState = {
     datas: [],
-    filter: '',
+    filter: 'jaringan',
     openModal: false,
     toShow: [],
     sumDatas: [],
     legend: [],
     searchMode: false,
-    searchData: ""
+    searchData: "",
+    isLanding: true,
+    loginMessage: ''
 }
 
 export default (state = initialState, action) => {
@@ -48,15 +50,22 @@ export default (state = initialState, action) => {
                 filter: action.datas
             }
         case 'SEARCH_ENABLE':
-            return{
+            return {
                 ...state,
                 searchData: action.datas,
                 searchMode: true,
             }
         case 'RESET':
-            return{
+            return {
                 ...state,
                 searchMode: false,
+            }
+        case 'LOGIN':
+            return {
+                ...state,
+                isLanding: false,
+                filter: '', 
+                loginMessage: 'Login Berhasil'
             }
         default:
             return state
