@@ -192,7 +192,7 @@ body {
   }
 
   .legend .header{
-    width: 400px;
+   
     background-color: black;
     border-radius: 20px;
     display: flex;
@@ -355,7 +355,7 @@ body {
 
   .btn-control {
     position: absolute;
-    width: 400px;
+    width: 360px;
     height: 70px;
     z-index: 100;
     right: 45px;
