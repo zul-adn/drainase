@@ -1,33 +1,37 @@
 {
   "files": {
-    "main.css": "/drainase/static/css/main.b0326692.chunk.css",
-    "main.js": "/drainase/static/js/main.7695140e.chunk.js",
-    "main.js.map": "/drainase/static/js/main.7695140e.chunk.js.map",
+    "main.css": "/drainase/static/css/main.11f35fd6.chunk.css",
+    "main.js": "/drainase/static/js/main.e2b7e37c.chunk.js",
+    "main.js.map": "/drainase/static/js/main.e2b7e37c.chunk.js.map",
     "runtime-main.js": "/drainase/static/js/runtime-main.9132e055.js",
     "runtime-main.js.map": "/drainase/static/js/runtime-main.9132e055.js.map",
     "static/css/2.b4875422.chunk.css": "/drainase/static/css/2.b4875422.chunk.css",
-    "static/js/2.b8adb386.chunk.js": "/drainase/static/js/2.b8adb386.chunk.js",
-    "static/js/2.b8adb386.chunk.js.map": "/drainase/static/js/2.b8adb386.chunk.js.map",
+    "static/js/2.8a2546e2.chunk.js": "/drainase/static/js/2.8a2546e2.chunk.js",
+    "static/js/2.8a2546e2.chunk.js.map": "/drainase/static/js/2.8a2546e2.chunk.js.map",
     "static/js/3.4cafe07f.chunk.js": "/drainase/static/js/3.4cafe07f.chunk.js",
     "static/js/3.4cafe07f.chunk.js.map": "/drainase/static/js/3.4cafe07f.chunk.js.map",
     "index.html": "/drainase/index.html",
     "static/css/2.b4875422.chunk.css.map": "/drainase/static/css/2.b4875422.chunk.css.map",
-    "static/css/main.b0326692.chunk.css.map": "/drainase/static/css/main.b0326692.chunk.css.map",
-    "static/js/2.b8adb386.chunk.js.LICENSE.txt": "/drainase/static/js/2.b8adb386.chunk.js.LICENSE.txt",
+    "static/css/main.11f35fd6.chunk.css.map": "/drainase/static/css/main.11f35fd6.chunk.css.map",
+    "static/js/2.8a2546e2.chunk.js.LICENSE.txt": "/drainase/static/js/2.8a2546e2.chunk.js.LICENSE.txt",
     "static/media/citra.8f8c1291.PNG": "/drainase/static/media/citra.8f8c1291.PNG",
     "static/media/file.8fa05ea9.svg": "/drainase/static/media/file.8fa05ea9.svg",
+    "static/media/forest.d749240d.svg": "/drainase/static/media/forest.d749240d.svg",
     "static/media/general.css": "/drainase/static/media/hero-bg.6d3cdc58.jpg",
     "static/media/hero-img.9462813a.png": "/drainase/static/media/hero-img.9462813a.png",
+    "static/media/island.6000f231.svg": "/drainase/static/media/island.6000f231.svg",
     "static/media/logo.6ce24c58.svg": "/drainase/static/media/logo.6ce24c58.svg",
     "static/media/pie-chart.02975392.svg": "/drainase/static/media/pie-chart.02975392.svg",
     "static/media/recycle.11bff4b9.svg": "/drainase/static/media/recycle.11bff4b9.svg",
-    "static/media/street.a0c65420.PNG": "/drainase/static/media/street.a0c65420.PNG"
+    "static/media/river.2ba3e3d5.svg": "/drainase/static/media/river.2ba3e3d5.svg",
+    "static/media/street.a0c65420.PNG": "/drainase/static/media/street.a0c65420.PNG",
+    "static/media/waterfall.80d6c3be.svg": "/drainase/static/media/waterfall.80d6c3be.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.9132e055.js",
     "static/css/2.b4875422.chunk.css",
-    "static/js/2.b8adb386.chunk.js",
-    "static/css/main.b0326692.chunk.css",
-    "static/js/main.7695140e.chunk.js"
+    "static/js/2.8a2546e2.chunk.js",
+    "static/css/main.11f35fd6.chunk.css",
+    "static/js/main.e2b7e37c.chunk.js"
   ]
 }
